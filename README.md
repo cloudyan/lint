@@ -2,6 +2,8 @@
 
 # `@deepjs/lint`
 
+基于 `@umijs/fabric` 修改
+
 一个包含 prettier，eslint，stylelint 的配置文件合集
 
 A collection of configuration files containing prettier, eslint, stylelint

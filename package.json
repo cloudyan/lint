@@ -1,6 +1,6 @@
 {
   "name": "@deepjs/lint",
-  "version": "2.6.2",
+  "version": "0.0.1",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "eslint",
@@ -13,8 +13,7 @@
   "bin": {
     "lint": "./cli.js"
   },
-  "license": "ISC",
-  "author": "qixian.cs@outlook.com",
+  "license": "MIT",
   "main": "dist/index.js",
   "files": [
     "dist",
