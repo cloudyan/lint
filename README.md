@@ -1,0 +1,55 @@
+<!-- @format -->
+
+# `@deepjs/lint`
+
+一个包含 prettier，eslint，stylelint 的配置文件合集
+
+A collection of configuration files containing prettier, eslint, stylelint
+
+# Use
+
+安装
+
+```bash
+npm i @deepjs/lint --save-dev
+yarn add @deepjs/lint -D
+```
+
+in `.eslintrc.js`
+
+```js
+module.exports = {
+  extends: [require.resolve('@deepjs/lint/dist/eslint')],
+
+  // in antd-design-pro
+  globals: {
+    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
+    page: true,
+  },
+
+  rules: {
+    // your rules
+  },
+};
+```
+
+in `.stylelintrc.js`
+
+```js
+module.exports = {
+  extends: [require.resolve('@deepjs/lint/dist/stylelint')],
+  rules: {
+    // your rules
+  },
+};
+```
+
+in `.prettierrc.js`
+
+```js
+const lint = require('@deepjs/lint');
+
+module.exports = {
+  ...lint.prettier,
+};
+```

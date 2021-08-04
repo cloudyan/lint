@@ -78,3 +78,13 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# umi
+.umi
+.umi-production
+
+# screenshot
+screenshot
+.firebase
+.eslintcache
+dist
