@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
+    "lint",
     "eslint",
     "prettier",
-    "antd",
-    "ant",
-    "design",
-    "pro"
+    "stylelint",
+    "editorconfig"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "bin": {
     "lint": "./cli.js"
   },

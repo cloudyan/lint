@@ -2,7 +2,7 @@
 
 # `@deepjs/lint`
 
-基于 `@umijs/fabric` 修改
+基于 [@umijs/fabric](https://github.com/umijs/fabric) 修改
 
 一个包含 prettier，eslint，stylelint 的配置文件合集
 

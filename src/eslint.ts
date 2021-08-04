@@ -17,10 +17,11 @@ const parserOptions = {
   project: './tsconfig.json',
 };
 
-const isJsMoreTs = async (path = 'src') => {
+const isJsMoreTs = async (path2 = 'src') => {
+  // eslint-disable-next-line
   const fg = require('fast-glob');
-  const jsFiles = await fg(`${path}/src/**/*.{js,jsx}`, { deep: 3 });
-  const tsFiles = await fg(`${path}/src/**/*.{ts,tsx}`, { deep: 3 });
+  const jsFiles = await fg(`${path2}/src/**/*.{js,jsx}`, { deep: 3 });
+  const tsFiles = await fg(`${path2}/src/**/*.{ts,tsx}`, { deep: 3 });
   return jsFiles.length > tsFiles.length;
 };
 
@@ -30,9 +31,11 @@ if (isTsProject) {
   try {
     isJsMoreTs(process.cwd()).then((jsMoreTs) => {
       if (!jsMoreTs) return;
+      // eslint-disable-next-line
       console.log('这是一个 TypeScript 项目，如果不是请删除 tsconfig.json');
     });
   } catch (e) {
+    // eslint-disable-next-line
     console.log(e);
   }
 }
