@@ -4,27 +4,6 @@ import tsEslintConfig from './tsEslintConfig';
 
 const isTsProject = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'));
 // console.log('isTsProject', isTsProject, path.join(process.cwd()));
-
-const parserOptions = {
-  ecmaFeatures: {
-    jsx: true,
-  },
-  babelOptions: {
-    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-    plugins: [
-      ['@babel/plugin-proposal-decorators', { legacy: true }],
-      ['@babel/plugin-proposal-class-properties', { loose: true }],
-    ],
-  },
-  requireConfigFile: false,
-};
-
-if (isTsProject) {
-  Object.assign(parserOptions, {
-    project: './tsconfig.json',
-  })
-}
-
 const isJsMoreTs = async (path2 = 'src') => {
   // eslint-disable-next-line
   const fg = require('fast-glob');
@@ -32,7 +11,6 @@ const isJsMoreTs = async (path2 = 'src') => {
   const tsFiles = await fg(`${path2}/src/**/*.{ts,tsx}`, { deep: 3 });
   return jsFiles.length > tsFiles.length;
 };
-
 
 if (isTsProject) {
   try {
@@ -45,6 +23,28 @@ if (isTsProject) {
     // eslint-disable-next-line
     console.log(e);
   }
+}
+
+const parserOptions = {
+  ecmaFeatures: {
+    jsx: true,
+  },
+  babelOptions: {
+    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+    plugins: [
+      // 此处顺序不能变，具体参看文档
+      // https://babel.dev/docs/en/babel-plugin-proposal-decorators
+      ['@babel/plugin-proposal-decorators', { legacy: true }],
+      ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ],
+  },
+  requireConfigFile: false,
+};
+
+if (isTsProject) {
+  Object.assign(parserOptions, {
+    project: './tsconfig.json',
+  })
 }
 
 module.exports = {
