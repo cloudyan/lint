@@ -83,7 +83,7 @@ const LoginItem: React.FC<LoginItemProps> = (props) => {
     }
     message.success('获取验证码成功！验证码为：1234');
     setTiming(true);
-  }, []);
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     let interval: number = 0;
@@ -104,7 +104,7 @@ const LoginItem: React.FC<LoginItemProps> = (props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [timing]);
+  }, [timing]); // eslint-disable-line
   if (!name) {
     return null;
   }

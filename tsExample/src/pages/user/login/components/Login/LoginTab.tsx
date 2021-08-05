@@ -25,7 +25,7 @@ const LoginTab: React.FC<LoginTabProps> = (props) => {
     if (tabUtil) {
       tabUtil.addTab(uniqueId);
     }
-  }, []);
+  }, []); // eslint-disable-line
 
   const { children } = props;
   return <TabPane {...props}>{children}</TabPane>;

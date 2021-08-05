@@ -32,5 +32,8 @@
     "tsExample/**",
     "jsExample/**"
   ],
-  "include": ["src/*.json", "src/*.ts"]
+  "include": [
+    "src/*.json",
+    "src/*.ts"
+  ]
 }

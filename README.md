@@ -15,6 +15,8 @@ A collection of configuration files containing prettier, eslint, stylelint
 ```bash
 npm i @deepjs/lint --save-dev
 yarn add @deepjs/lint -D
+
+# lint 需要安装命令项 如 eslint prettier stylelint
 ```
 
 in `.eslintrc.js`

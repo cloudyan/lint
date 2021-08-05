@@ -2,6 +2,9 @@ import * as path from 'path';
 import * as fs from 'fs';
 import tsEslintConfig from './tsEslintConfig';
 
+const isTsProject = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'));
+// console.log('isTsProject', isTsProject, path.join(process.cwd()));
+
 const parserOptions = {
   ecmaFeatures: {
     jsx: true,
@@ -14,8 +17,13 @@ const parserOptions = {
     ],
   },
   requireConfigFile: false,
-  project: './tsconfig.json',
 };
+
+if (isTsProject) {
+  Object.assign(parserOptions, {
+    project: './tsconfig.json',
+  })
+}
 
 const isJsMoreTs = async (path2 = 'src') => {
   // eslint-disable-next-line
@@ -25,7 +33,6 @@ const isJsMoreTs = async (path2 = 'src') => {
   return jsFiles.length > tsFiles.length;
 };
 
-const isTsProject = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'));
 
 if (isTsProject) {
   try {

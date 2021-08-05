@@ -120,7 +120,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         type: 'user/fetchCurrent',
       });
     }
-  }, []);
+  }, []); // eslint-disable-line
   /** Init variables */
 
   const handleMenuCollapse = (payload: boolean): void => {

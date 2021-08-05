@@ -80,7 +80,7 @@ const BasicLayout = (props) => {
         type: 'user/fetchCurrent',
       });
     }
-  }, []);
+  }, []); // eslint-disable-line
   /**
    * init variables
    */
