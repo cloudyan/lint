@@ -7,23 +7,15 @@ root = true
 
 # Unix-style newlines with a newline ending every file
 # [*.{js,css}]
-# 匹配所有的文件
-[*]
-# 缩进风格：space
+[*] # 匹配所有的文件
 indent_style = space
-# 缩进大小 2
 indent_size = 2
-# 换行符 lf
 end_of_line = lf
-# 字符集 utf-8
 charset = utf-8
-# 是否从行尾删除空格
 trim_trailing_whitespace = true
-# 表示文件是否应以换行符结尾
 insert_final_newline = true
 
-# 对所有的 js 文件生效
-[*.js]
+[*.js] # 对所有的 js 文件生效
 # 字符串使用单引号
 quote_type = single
 
