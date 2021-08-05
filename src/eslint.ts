@@ -54,7 +54,13 @@ module.exports = {
       : ['plugin:react/recommended'],
   ),
   parser: isTsProject ? '@typescript-eslint/parser' : '@babel/eslint-parser',
-  plugins: ['eslint-comments', 'react', 'jest', 'unicorn', 'react-hooks'],
+  plugins: [
+    'eslint-comments',
+    'react',
+    'jest',
+    'unicorn',
+    'react-hooks',
+  ],
   env: {
     browser: true,
     node: true,
@@ -116,7 +122,7 @@ module.exports = {
     'operator-linebreak': 0,
     'eslint-comments/no-unlimited-disable': 0,
     'no-param-reassign': 2,
-    'space-before-function-paren': 0,
+    // 'space-before-function-paren': 0,
     'no-restricted-imports': [
       'error',
       {
@@ -130,6 +136,99 @@ module.exports = {
       },
     ],
     ...(isTsProject ? tsEslintConfig : {}),
+
+    // mine
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'ignore',
+      },
+    ],
+    'no-else-return': 'off',
+    'no-mixed-operators': 'off',
+    'no-multi-spaces': [
+      'error',
+      {
+        ignoreEOLComments: true,
+      },
+    ],
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        max: 2,
+        maxEOF: 1,
+      },
+    ],
+    'no-nested-ternary': 'off',
+    // 'no-param-reassign': 'off',
+    'no-plusplus': [
+      'off',
+      {
+        allowForLoopAfterthoughts: true,
+      },
+    ],
+    'no-restricted-syntax': 'off',
+    'no-shadow': [
+      'error',
+      {
+        allow: [
+          'res',
+          'data',
+          'err',
+          'cb',
+          'state',
+          'resolve',
+          'reject',
+          'done',
+        ],
+      },
+    ],
+    'no-trailing-spaces': 'off',
+    'no-underscore-dangle': 'off',
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+    'no-unused-vars': 'off',
+    // 'no-unused-vars': [
+    //   'error',
+    //   {
+    //     vars: 'all',
+    //     // args: 'after-used',
+    //     args: 'none',
+    //     caughtErrors: 'none',
+    //     ignoreRestSiblings: true,
+    //   },
+    // ],
+    'no-use-before-define': 'off',
+    'no-useless-escape': 'off',
+    'prefer-template': 'off',
+    'prefer-arrow-callback': 'off',
+    'quotes': ['error', 'single', {
+      'avoidEscape': true,
+      'allowTemplateLiterals': true,
+    }],
+    'require-yield': [1],
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'ignore',
+        asyncArrow: 'ignore',
+      },
+    ],
+    semi: ['error', 'never'],
+    'func-names': 'off',
+    'consistent-return': 'off',
+
   },
   settings: {
     // support import modules from TypeScript files in JavaScript files

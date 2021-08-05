@@ -17,6 +17,8 @@ npm i @deepjs/lint --save-dev
 yarn add @deepjs/lint -D
 
 # lint 需要安装命令项 如 eslint prettier stylelint
+npm run lint # 制作语法格式检查，不做修复
+npm run lint:fix # 修复语法格式等
 ```
 
 in `.eslintrc.js`
