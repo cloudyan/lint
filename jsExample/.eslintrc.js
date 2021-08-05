@@ -8,4 +8,16 @@ module.exports = {
     REACT_APP_ENV: true,
     page: true,
   },
+  rules: {
+    'object-curly-spacing': [
+      'error',
+      'always',
+      {
+        // arraysInObjects: false,
+        // objectsInObjects: false,
+      },
+    ],
+    'react/prop-types': 0,
+    'react/display-name': 0,
+  },
 };
