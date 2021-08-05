@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import tsEslintConfig from './tsEslintConfig';
 
 const isTsProject = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'));
-// console.log('isTsProject', isTsProject, path.join(process.cwd()));
+console.log('isTsProject', isTsProject, path.join(process.cwd()));
 const isJsMoreTs = async (path2 = 'src') => {
   // eslint-disable-next-line
   const fg = require('fast-glob');
@@ -30,7 +30,11 @@ const parserOptions = {
     jsx: true,
   },
   babelOptions: {
-    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+    presets: [
+      '@babel/preset-env',
+      '@babel/preset-react',
+      '@babel/preset-typescript',
+    ],
     plugins: [
       // 此处顺序不能变，具体参看文档
       // https://babel.dev/docs/en/babel-plugin-proposal-decorators
@@ -39,24 +43,32 @@ const parserOptions = {
     ],
   },
   requireConfigFile: false,
+  project: './tsconfig.json',
 };
 
-if (isTsProject) {
-  Object.assign(parserOptions, {
-    project: './tsconfig.json',
-  })
-}
+// if (isTsProject) {
+//   Object.assign(parserOptions, {
+//   })
+// }
 
 module.exports = {
-  extends: ['eslint-config-airbnb-base', 'prettier', 'prettier/react'].concat(
-    isTsProject
-      ? ['prettier/@typescript-eslint', 'plugin:@typescript-eslint/recommended']
-      : ['plugin:react/recommended'],
-  ),
   parser: isTsProject ? '@typescript-eslint/parser' : '@babel/eslint-parser',
+  extends: [
+    'eslint-config-airbnb-base',
+    'prettier',
+    'prettier/react',
+  ].concat(isTsProject ? [
+    'prettier/@typescript-eslint',
+    'plugin:@typescript-eslint/recommended',
+  ] : [
+    'plugin:react/recommended',
+  ]),
   plugins: [
     'eslint-comments',
+    // 'import', // 暂不开启
     'react',
+    // 'jsx-a11y', // 这个暂时不必要
+    // 'promise',
     'jest',
     'unicorn',
     'react-hooks',
@@ -70,28 +82,28 @@ module.exports = {
     jasmine: true,
   },
   rules: {
-    'react/display-name': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react/state-in-constructor': 0,
-    'react/static-property-placement': 0,
-    // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
-    'react/destructuring-assignment': 'off',
-    'react/jsx-filename-extension': 'off',
-    'react/no-array-index-key': 'warn',
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks deps of Hooks
-    'react/require-default-props': 0,
-    'react/jsx-fragments': 0,
-    'react/jsx-wrap-multilines': 0,
-    'react/prop-types': 0,
-    'react/forbid-prop-types': 0,
-    'react/sort-comp': 0,
-    'react/react-in-jsx-scope': 0,
-    'react/jsx-one-expression-per-line': 0,
-    'generator-star-spacing': 0,
-    // 'function-paren-newline': 0,
+    // 'react/display-name': 0,
+    // 'react/jsx-props-no-spreading': 0,
+    // 'react/state-in-constructor': 0,
+    // 'react/static-property-placement': 0,
+    // // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
+    // 'react/destructuring-assignment': 'off',
+    // 'react/jsx-filename-extension': 'off',
+    // 'react/no-array-index-key': 'warn',
+    // 'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    // 'react-hooks/exhaustive-deps': 'warn', // Checks deps of Hooks
+    // 'react/require-default-props': 0,
+    // 'react/jsx-fragments': 0,
+    // 'react/jsx-wrap-multilines': 0,
+    // 'react/prop-types': 0,
+    // 'react/forbid-prop-types': 0,
+    // 'react/sort-comp': 0,
+    // 'react/react-in-jsx-scope': 0,
+    // 'react/jsx-one-expression-per-line': 0,
+    // 'generator-star-spacing': 0,
+    // // 'function-paren-newline': 0,
     'import/no-unresolved': 0,
-    'import/order': 0,
+    'import/order': 'error',
     'import/no-named-as-default': 0,
     'import/no-cycle': 0,
     'import/prefer-default-export': 0,
@@ -103,24 +115,24 @@ module.exports = {
     'import/no-self-import': 0,
     'import/extensions': 0,
     'import/no-useless-path-segments': 0,
-    'jsx-a11y/no-noninteractive-element-interactions': 0,
-    'jsx-a11y/click-events-have-key-events': 0,
-    'jsx-a11y/no-static-element-interactions': 0,
-    'jsx-a11y/anchor-is-valid': 0,
-    'sort-imports': 0,
-    'class-methods-use-this': 0,
-    'no-confusing-arrow': 0,
-    'linebreak-style': 0,
-    // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
-    'no-prototype-builtins': 'off',
-    'unicorn/prevent-abbreviations': 'off',
-    // Conflict with prettier
-    'arrow-body-style': 0,
-    'arrow-parens': 0,
-    'object-curly-newline': 0,
-    'implicit-arrow-linebreak': 0,
-    'operator-linebreak': 0,
-    'eslint-comments/no-unlimited-disable': 0,
+    // 'jsx-a11y/no-noninteractive-element-interactions': 0,
+    // 'jsx-a11y/click-events-have-key-events': 0,
+    // 'jsx-a11y/no-static-element-interactions': 0,
+    // 'jsx-a11y/anchor-is-valid': 0,
+    // 'sort-imports': 0,
+    // 'class-methods-use-this': 0,
+    // 'no-confusing-arrow': 0,
+    // 'linebreak-style': 0,
+    // // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
+    // 'no-prototype-builtins': 'off',
+    // 'unicorn/prevent-abbreviations': 'off',
+    // // Conflict with prettier
+    // 'arrow-body-style': 0,
+    // 'arrow-parens': 0,
+    // 'object-curly-newline': 0,
+    // 'implicit-arrow-linebreak': 0,
+    // 'operator-linebreak': 0,
+    // 'eslint-comments/no-unlimited-disable': 0,
     // 'no-param-reassign': 2,
     // 'space-before-function-paren': 0,
     'no-restricted-imports': [
@@ -232,7 +244,7 @@ module.exports = {
     }],
     'quote-props': ['error', 'as-needed'],
     'require-yield': [1],
-    semi: ['error', 'never'], //
+    // semi: ['error', 'never'], // 临时关闭
     'space-before-function-paren': [
       'error',
       {
@@ -246,7 +258,9 @@ module.exports = {
     // support import modules from TypeScript files in JavaScript files
     'import/resolver': {
       node: {
-        extensions: isTsProject ? ['.js', '.jsx', '.ts', '.tsx', '.d.ts'] : ['.js', '.jsx'],
+        extensions: isTsProject ?
+        ['.js', '.jsx', '.ts', '.tsx', '.d.ts'] :
+        ['.js', '.jsx'],
       },
     },
     'import/parsers': {

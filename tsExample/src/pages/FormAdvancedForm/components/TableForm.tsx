@@ -2,7 +2,6 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Button, Divider, Input, Popconfirm, Table, message } from 'antd';
 import React, { Fragment, Component } from 'react';
 import isEqual from 'lodash.isequal';
-
 import styles from '../style.less';
 
 type TableFormDateType = {

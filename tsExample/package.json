@@ -11,7 +11,7 @@
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "lint:prettier": "prettier --check \"**/*\" --end-of-line auto",
-    "prettier": "prettier -c --write \"**/*\""
+    "lint:prettier:fix": "prettier -c --write \"**/*\""
   },
   "dependencies": {
     "@ant-design/compatible": "^1.0.0",

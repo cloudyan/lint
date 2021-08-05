@@ -55,7 +55,7 @@ const OfflineData = ({
   loading: boolean;
   offlineData: OfflineDataType[];
   offlineChartData: OfflineChartData[];
-  handleTabChange: (activeKey: string) => void;
+  handleTabChange: (value: string) => void;
 }) => (
   <Card loading={loading} className={styles.offlineCard} bordered={false} style={{ marginTop: 32 }}>
     <Tabs activeKey={activeKey} onChange={handleTabChange}>

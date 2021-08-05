@@ -89,3 +89,5 @@ screenshot
 .eslintcache
 dist
 yarn.lock
+/react/
+/vue/
