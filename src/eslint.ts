@@ -150,6 +150,10 @@ module.exports = {
     ...(isTsProject ? tsEslintConfig : {}),
 
     // mine: off warn error
+    'arrow-body-style': 'off',
+    // 'arrow-body-style': ['error', 'as-needed', {
+    //   'requireReturnForObjectLiteral': true,
+    // }],
     'consistent-return': 'off',
     'comma-dangle': [
       'error',
@@ -160,15 +164,17 @@ module.exports = {
         objects: 'always-multiline',
         imports: 'always-multiline',
         exports: 'always-multiline',
-        functions: 'ignore',
+        functions: 'always-multiline',
       },
     ],
     'func-names': 'off',
-    'no-bitwise': 'warn',
+    'no-bitwise': 'off',
     'no-continue': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'off' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'off' : 'off',
     'no-else-return': 'off',
+    'no-inner-declarations': 'warn',
+    'no-lonely-if': 'off', // 不使用 else if，也能使代码比较清晰
     'no-mixed-operators': 'off',
     'no-multi-spaces': [
       'error',
@@ -184,7 +190,7 @@ module.exports = {
       },
     ],
     'no-nested-ternary': 'off',
-    'no-param-reassign': 'warn',
+    'no-param-reassign': 'off',
     'no-plusplus': [
       'off',
       {
@@ -192,23 +198,25 @@ module.exports = {
       },
     ],
     'no-restricted-syntax': 'off',
-    'no-shadow': [
-      'error',
-      {
-        allow: [
-          'res',
-          'data',
-          'err',
-          'cb',
-          'callback',
-          'props',
-          'state',
-          'resolve',
-          'reject',
-          'done',
-        ],
-      },
-    ],
+    'no-shadow': 'off',
+
+    // 'no-shadow': [
+    //   'error',
+    //   {
+    //     allow: [
+    //       'res',
+    //       'data',
+    //       'err',
+    //       'cb',
+    //       'callback',
+    //       'props',
+    //       'state',
+    //       'resolve',
+    //       'reject',
+    //       'done',
+    //     ],
+    //   },
+    // ],
     'no-trailing-spaces': 'off',
     'no-underscore-dangle': 'off',
     // 'no-unused-expressions': [
@@ -244,7 +252,7 @@ module.exports = {
     }],
     'quote-props': ['error', 'as-needed'],
     'require-yield': [1],
-    // semi: ['error', 'never'], // 临时关闭
+    semi: ['error', 'never'], // 临时关闭
     'space-before-function-paren': [
       'error',
       {

@@ -76,22 +76,7 @@ export default {
   '@typescript-eslint/no-redeclare': 'error',
   '@typescript-eslint/no-require-imports': 0,
   // 'no-shadow': 'off',
-  '@typescript-eslint/no-shadow': ['error', {
-    ignoreTypeValueShadow: true,
-    ignoreFunctionTypeParameterNameValueShadow: true,
-    allow: [
-      'res',
-      'data',
-      'err',
-      'cb',
-      'callback',
-      'props',
-      'state',
-      'resolve',
-      'reject',
-      'done',
-    ],
-  }],
+  '@typescript-eslint/no-shadow': 'off',
   '@typescript-eslint/no-this-alias': 'error',
   'no-throw-literal': 'off',
   '@typescript-eslint/no-throw-literal': 'error',
@@ -154,7 +139,7 @@ export default {
   // Makes no sense to allow type inferrence for expression parameters, but require typing the response
   // 'no-use-before-define': 'off',
   '@typescript-eslint/no-use-before-define': [
-    'error',
+    'warn',
     {
       functions: false,
       classes: true,
