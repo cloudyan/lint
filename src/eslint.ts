@@ -56,9 +56,9 @@ module.exports = {
   extends: [
     'eslint-config-airbnb-base',
     'prettier',
-    'prettier/react',
+    // 'prettier/react', // has been merged into "prettier" in eslint-config-prettier 8.0.0
   ].concat(isTsProject ? [
-    'prettier/@typescript-eslint',
+    // 'prettier/@typescript-eslint', // has been merged into "prettier" in eslint-config-prettier 8.0.0
     'plugin:@typescript-eslint/recommended',
   ] : [
     'plugin:react/recommended',
