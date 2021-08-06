@@ -4,15 +4,16 @@
   "private": true,
   "description": "An out-of-box UI solution for enterprise applications",
   "scripts": {
-    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
-    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && npm run lint:style",
+    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "lint:style": "stylelint \"src/**/*.less\" --syntax less",
     "lint:prettier": "prettier --check \"**/*\" --end-of-line auto",
-    "lint:prettier:fix": "prettier --write \"src\"",
-    "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
-    "prettier": "prettier -c --write \"**/*\""
+    "lint:fix": "npm run lint:js:fix && npm run lint:style:fix && npm run lint:prettier:fix",
+    "lint:js:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "lint:style:fix": "stylelint --fix \"src/**/*.less\" --syntax less",
+    "lint:prettier:fix": "prettier -c --write \"**/*\""
   },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",

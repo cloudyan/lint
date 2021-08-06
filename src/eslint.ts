@@ -150,6 +150,7 @@ module.exports = {
     ...(isTsProject ? tsEslintConfig : {}),
 
     // mine: off warn error
+    'array-bracket-spacing': 'error',
     'arrow-body-style': 'off',
     // 'arrow-body-style': ['error', 'as-needed', {
     //   'requireReturnForObjectLiteral': true,
@@ -167,6 +168,7 @@ module.exports = {
         functions: 'always-multiline',
       },
     ],
+    'comma-spacing': 'error',
     'func-names': 'off',
     'no-bitwise': 'off',
     'no-continue': 'off',
@@ -252,7 +254,7 @@ module.exports = {
     }],
     'quote-props': ['error', 'as-needed'],
     'require-yield': [1],
-    semi: ['error', 'never'], // 临时关闭
+    semi: ['error', 'never'], // always/never 可按需使用
     'space-before-function-paren': [
       'error',
       {
