@@ -72,6 +72,7 @@ module.exports = {
     'jest',
     'unicorn',
     'react-hooks',
+    'markdown',
   ],
   env: {
     browser: true,

@@ -8,7 +8,10 @@ module.exports = {
     'stylelint-config-prettier',
     'stylelint-no-unsupported-browser-features',
   ],
-  plugins: ['stylelint-order', 'stylelint-declaration-block-no-ignored-properties'],
+  plugins: [
+    'stylelint-order',
+    'stylelint-declaration-block-no-ignored-properties',
+  ],
   rules: {
     'no-descending-specificity': null,
     // https://github.com/stylelint/stylelint/issues/4114
@@ -16,7 +19,17 @@ module.exports = {
     'function-url-quotes': 'always',
     'font-family-no-missing-generic-family-keyword': null, // iconfont
     'plugin/declaration-block-no-ignored-properties': true,
-    'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
+    'unit-no-unknown': [
+      true,
+      {
+        ignoreUnits: ['rpx']
+      },
+    ],
   },
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'],
+  ignoreFiles: [
+    '**/*.js',
+    '**/*.jsx',
+    '**/*.tsx',
+    '**/*.ts',
+  ],
 };
