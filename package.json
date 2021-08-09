@@ -14,8 +14,8 @@
     "access": "public"
   },
   "bin": {
-    "cilint": "./cli.js",
-    "commitlint": "./cli.js"
+    "lint": "./cli.js",
+    "cooklint": "./cli.js"
   },
   "license": "MIT",
   "main": "dist/index.js",

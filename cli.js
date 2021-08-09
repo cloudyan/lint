@@ -39,10 +39,10 @@ switch (option) {
         ${chalk.cyan('verify-commit')}    检查 commit 提交的信息
 
       Examples:
-        ${chalk.gray('commitlint')}
-        commitlint -h
+        ${chalk.gray('cooklint')}
+        cooklint -h
         ${chalk.gray('verify-commit ')}
-        commitlint verify-commit
+        cooklint verify-commit
         `.trim();
       console.log(details);
     }

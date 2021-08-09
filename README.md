@@ -19,12 +19,32 @@ yarn add @deepjs/lint -D
 # lint 需要安装命令项 如 eslint prettier stylelint
 npm run lint # 制作语法格式检查，不做修复
 npm run lint:js
-npm run lint:style
+npm run lint:css
 npm run lint:prettier
 npm run lint:fix # 修复语法格式等
 npm run lint:js:fix
-npm run lint:style:fix
+npm run lint:css:fix
 npm run lint:prettier:fix
+
+```
+
+in package.json
+
+eslint 使用 --cache 可能会让修改的配置不会立即生效
+
+如：`eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src`
+
+```js
+"scripts": {
+  "lint": "npm run lint:js && npm run lint:css",
+  "lint:js": "cross-env TIMING=1 eslint --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+  "lint:css": "stylelint 'src/**/*.less' --syntax less",
+  "lint:prettier": "prettier --check '**/*' --end-of-line auto",
+  "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:prettier:fix",
+  "lint:js:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+  "lint:css:fix": "stylelint --fix 'src/**/*.less' --syntax less",
+  "lint:prettier:fix": "prettier -c --write '**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version"
+}
 ```
 
 in `.eslintrc.js`
