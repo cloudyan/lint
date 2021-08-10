@@ -78,7 +78,7 @@ module.exports = {
     // 'prefer-rest-params': 0,
     // semi: 0,
   },
-};
+}
 ```
 
 in `.stylelintrc.js`
@@ -89,7 +89,7 @@ module.exports = {
   rules: {
     // your rules
   },
-};
+}
 ```
 
 in `.prettierrc.js`
@@ -99,5 +99,5 @@ const lint = require('@deepjs/lint');
 
 module.exports = {
   ...lint.prettier,
-};
+}
 ```
