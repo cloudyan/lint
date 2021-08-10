@@ -22,7 +22,7 @@ module.exports = {
     'unit-no-unknown': [
       true,
       {
-        ignoreUnits: ['rpx']
+        ignoreUnits: ['rpx'],
       },
     ],
   },
@@ -32,4 +32,4 @@ module.exports = {
     '**/*.tsx',
     '**/*.ts',
   ],
-};
+}

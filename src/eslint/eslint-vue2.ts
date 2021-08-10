@@ -41,10 +41,10 @@ module.exports = {
     // 因为 mac 系统默认不区分大小写, 所以建议使用全小写, 包含文件名 文件夹名 组件名(html 特性也不区分大小写)
     'vue/name-property-casing': ['error', 'kebab-case'], // 'PascalCase' |'kebab-case'
     'vue/max-attributes-per-line': ['error', {
-      'singleline': 4,
-      'multiline': {
-        'max': 1,
-        'allowFirstLine': false,
+      singleline: 4,
+      multiline: {
+        max: 1,
+        allowFirstLine: false,
       },
     }],
     'vue/multiline-html-element-content-newline': 'off',
@@ -138,9 +138,9 @@ module.exports = {
     'no-useless-escape': 'off',
     'prefer-template': 'off',
     'prefer-arrow-callback': 'off',
-    'quotes': ['error', 'single', {
-      'avoidEscape': true,
-      'allowTemplateLiterals': true,
+    quotes: ['error', 'single', {
+      avoidEscape: true,
+      allowTemplateLiterals: true,
     }],
     'require-yield': [1],
     'space-before-function-paren': [

@@ -26,6 +26,12 @@ const cwd = process.cwd();
 
 const option = args._[0];
 
+// TODO:
+// lint init
+// lint commit
+// lint js
+// lint css
+// lint js,css,prettier --fix
 switch (option) {
   case 'verify-commit':
     // eslint-disable-next-line global-require

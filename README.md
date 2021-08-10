@@ -61,6 +61,22 @@ module.exports = {
 
   rules: {
     // your rules
+
+    // 常见的冲突规则
+    // 'import/export': 0,
+    // 'react/display-name': 0,
+    // 'react/prop-types': 0,
+    // camelcase: 0,
+    // 'class-methods-use-this': 0,
+    // 'guard-for-in': 0,
+    // 'no-empty-function': 0,
+    // 'no-restricted-globals': 0,
+    // 'no-script-url': 0,
+    // 'no-unused-expressions': 0,
+    // 'object-curly-spacing': 0,
+    // 'prefer-destructuring': 0,
+    // 'prefer-rest-params': 0,
+    // semi: 0,
   },
 };
 ```

@@ -1,24 +1,24 @@
-import * as path from 'path';
-import * as fs from 'fs';
-import tsEslintConfig from './tsEslintConfig';
+import * as path from 'path'
+import * as fs from 'fs'
+import tsEslintConfig from './tsEslintConfig'
 
-const isTsProject = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'));
-console.log('isTsProject', isTsProject, path.join(process.cwd()));
+const isTsProject = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'))
+console.log('isTsProject', isTsProject, path.join(process.cwd()))
 const isJsMoreTs = async (path2 = 'src') => {
   // eslint-disable-next-line
   const fg = require('fast-glob');
-  const jsFiles = await fg(`${path2}/src/**/*.{js,jsx}`, { deep: 3 });
-  const tsFiles = await fg(`${path2}/src/**/*.{ts,tsx}`, { deep: 3 });
-  return jsFiles.length > tsFiles.length;
-};
+  const jsFiles = await fg(`${path2}/src/**/*.{js,jsx}`, { deep: 3 })
+  const tsFiles = await fg(`${path2}/src/**/*.{ts,tsx}`, { deep: 3 })
+  return jsFiles.length > tsFiles.length
+}
 
 if (isTsProject) {
   try {
     isJsMoreTs(process.cwd()).then((jsMoreTs) => {
-      if (!jsMoreTs) return;
+      if (!jsMoreTs) return
       // eslint-disable-next-line
       console.log('这是一个 TypeScript 项目，如果不是请删除 tsconfig.json');
-    });
+    })
   } catch (e) {
     // eslint-disable-next-line
     console.log(e);
@@ -44,7 +44,7 @@ const parserOptions = {
   },
   requireConfigFile: false,
   project: './tsconfig.json',
-};
+}
 
 // if (isTsProject) {
 //   Object.assign(parserOptions, {
@@ -139,9 +139,9 @@ module.exports = {
     'no-restricted-imports': [
       'error',
       {
-        'patterns': [
+        patterns: [
           {
-            'group': [
+            group: [
               '*/.umi/*',
             ],
           },
@@ -249,9 +249,9 @@ module.exports = {
     }],
     'prefer-template': 'off',
     'prefer-arrow-callback': 'off',
-    'quotes': ['error', 'single', {
-      'avoidEscape': true,
-      'allowTemplateLiterals': true,
+    quotes: ['error', 'single', {
+      avoidEscape: true,
+      allowTemplateLiterals: true,
     }],
     'quote-props': ['error', 'as-needed'],
     'require-yield': [1],
@@ -282,4 +282,4 @@ module.exports = {
     polyfills: ['fetch', 'Promise', 'URL', 'object-assign'],
   },
   parserOptions,
-};
+}
