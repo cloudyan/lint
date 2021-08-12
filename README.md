@@ -8,6 +8,8 @@
 
 A collection of configuration files containing prettier, eslint, stylelint
 
+> 注意：使用 `@deepjs/lint` 检查时，因为eslint 等依赖安装在 `@deepjs/lint`,使用 yarn 安装有时导致找不到对应的 plugin 插件（未安装在当前项目下），可以改用 npm 安装
+
 # Use
 
 安装
