@@ -255,7 +255,7 @@ module.exports = {
     }],
     'quote-props': ['error', 'as-needed'],
     'require-yield': [1],
-    semi: ['error', 'never'], // always/never 可按需使用
+    semi: ['error', 'always'], // always/never 可按需使用
     'space-before-function-paren': [
       'error',
       {
