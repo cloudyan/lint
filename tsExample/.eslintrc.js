@@ -16,6 +16,6 @@ module.exports = {
         // objectsInObjects: false,
       },
     ],
-    semi: ['error', 'always'], // always/never 可按需使用
+    // semi: ['error', 'always'], // always/never 可按需使用
   },
 };

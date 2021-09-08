@@ -17,9 +17,8 @@ module.exports = {
         // objectsInObjects: false,
       },
     ],
-    semi: ['error', 'always'], // always/never 可按需使用
+    // semi: ['error', 'always'], // always/never 可按需使用
     'react/prop-types': 0,
     'react/display-name': 0,
-
   },
 };
