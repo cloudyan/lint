@@ -72,7 +72,7 @@ module.exports = {
     'jest',
     'unicorn', // 可强制约束文件命名格式，默认 kebabCase 格式
     'react-hooks',
-    'markdown',
+    'markdown', // 这个在 jsExample 报错
   ],
   env: {
     browser: true,
@@ -128,12 +128,12 @@ module.exports = {
     // 'no-prototype-builtins': 'off',
     // 'unicorn/prevent-abbreviations': 'off',
     // ['unicorn/filename-case'](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/HEAD/docs/rules/filename-case.md)
-    'unicorn/filename-case': ['error', {
-      case: '',
-      ignore: [
-        '^IGNORE\\.js$',
-      ],
-    }],
+    // 'unicorn/filename-case': ['error', {
+    //   // case: '',
+    //   ignore: [
+    //     '^IGNORE\\.js$',
+    //   ],
+    // }],
     // // Conflict with prettier
     // 'arrow-body-style': 0,
     // 'arrow-parens': 0,

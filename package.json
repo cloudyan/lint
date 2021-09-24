@@ -32,7 +32,7 @@
     "lint": "npm run lint:js",
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:css": "stylelint 'src/**/*.less' --syntax less",
-    "lint:prettier": "prettier --check 'src/**/*' --end-of-line auto",
+    "lint:prettier": "prettier --check 'src/**/*'",
     "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:prettier:fix",
     "lint:js:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:css:fix": "stylelint --fix 'src/**/*.less' --syntax less",

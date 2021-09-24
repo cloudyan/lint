@@ -4,6 +4,7 @@
 module.exports = {
   singleQuote: true,
   trailingComma: 'all',
+  endOfLine: 'auto',
   // 以上为改动，其他选项都使用默认值
 
   overrides: [

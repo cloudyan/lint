@@ -42,8 +42,8 @@ module.exports = {
 ```js
 {
   "scripts": {
-    "lint:prettier": "prettier --check '**/*' --end-of-line auto",
-    "lint:prettier:fix": "prettier -c --write '**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version"
+    "lint:prettier": "prettier --check 'src/**/*'",
+    "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -68,6 +68,7 @@ module.exports = {
 module.exports = {
   singleQuote: true,
   trailingComma: 'all',
+  endOfLine: 'auto',
   // 以上为改动，其他选项都使用默认值
 
   overrides: [
@@ -141,7 +142,7 @@ module.exports = {
   vueIndentScriptAndStyle: false,
   // 指定 prettier 的换行符
   // lf 在旧版本的 Windows 记事本会将这些行从视觉上压缩为一条
-  endOfLine: 'lf',
+  endOfLine: 'lf',              // TIP auto
   // 控制 Prettier 是否格式化文件中嵌入的引用代码
   embeddedLanguageFormatting: 'off',
   overrides: [
