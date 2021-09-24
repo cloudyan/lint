@@ -1,12 +1,11 @@
 /** @format */
 
+// https://prettier.io/docs/en/options.html
 module.exports = {
   singleQuote: true,
-  semi: true, // default true
   trailingComma: 'all',
-  printWidth: 100,
-  proseWrap: 'never',
-  endOfLine: 'lf',
+  // 以上为改动，其他选项都使用默认值
+
   overrides: [
     {
       files: '.prettierrc',
@@ -15,7 +14,7 @@ module.exports = {
       },
     },
     {
-      files: 'document.ejs',
+      files: '*.{ejs,html}', // document.ejs
       options: {
         parser: 'html',
       },

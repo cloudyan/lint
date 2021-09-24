@@ -70,7 +70,7 @@ module.exports = {
     // 'jsx-a11y', // 这个暂时不必要
     // 'promise',
     'jest',
-    'unicorn',
+    'unicorn', // 可强制约束文件命名格式，默认 kebabCase 格式
     'react-hooks',
     'markdown',
   ],
@@ -127,6 +127,13 @@ module.exports = {
     // // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
     // 'no-prototype-builtins': 'off',
     // 'unicorn/prevent-abbreviations': 'off',
+    // ['unicorn/filename-case'](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/HEAD/docs/rules/filename-case.md)
+    'unicorn/filename-case': ['error', {
+      case: '',
+      ignore: [
+        '^IGNORE\\.js$',
+      ],
+    }],
     // // Conflict with prettier
     // 'arrow-body-style': 0,
     // 'arrow-parens': 0,
