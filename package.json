@@ -39,7 +39,7 @@
     "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
     "lintTS": "npm run build && cd tsExample && npm run lint",
     "lintJS": "npm run build && cd jsExample && npm run lint",
-    "lint:example": "npm run testTS && npm run testJS"
+    "lint:example": "npm run lintTS && npm run lintJS"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
