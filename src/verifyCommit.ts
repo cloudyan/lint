@@ -1,13 +1,14 @@
 ﻿/* eslint-disable import/no-extraneous-dependencies */
 // Invoked on the commit-msg git hook by yorkie.
 
-const chalk = require('chalk')
-const osLocale = require('os-locale')
+const chalk = require('chalk');
+const osLocale = require('os-locale');
 
-const msgPath = process.env.GIT_PARAMS || process.env.HUSKY_GIT_PARAMS
-const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
+const msgPath = process.env.GIT_PARAMS || process.env.HUSKY_GIT_PARAMS;
+const msg = require('fs').readFileSync(msgPath, 'utf-8').trim();
 
-const commitRE = /^(((\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]) )?(revert: )?(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|typos|chore|tests|types|wip|release|dep|locale)(\(.+\))?: .{1,50}/
+const commitRE =
+  /^(((\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]) )?(revert: )?(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|typos|chore|tests|types|wip|release|dep|locale)(\(.+\))?: .{1,50}/;
 
 if (!commitRE.test(msg)) {
   // eslint-disable-next-line
@@ -16,7 +17,9 @@ if (!commitRE.test(msg)) {
     if (locale === 'zh-CN') {
       // eslint-disable-next-line
       console.error(
-        `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(`提交日志不符合规范`)}\n\n${chalk.red(
+        `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(
+          `提交日志不符合规范`,
+        )}\n\n${chalk.red(
           `  合法的提交日志格式如下(emoji 和 模块可选填)：\n\n`,
         )}
     ${chalk.green(`💥 feat(模块): 添加了个很棒的功能`)}
@@ -26,7 +29,7 @@ if (!commitRE.test(msg)) {
     ${chalk.green(`🏰 chore(模块): 对脚手架做了些更改`)}
     ${chalk.green(`🌐 locale(模块): 为国际化做了微小的贡献`)}
     ${chalk.red(`See .github/commit-convention.md for more details.\n`)}`,
-      )
+      );
     } else {
       // eslint-disable-next-line
       console.error(
@@ -40,13 +43,15 @@ if (!commitRE.test(msg)) {
     ${chalk.green(`📝 docs(compiler): add some docs`)}
     ${chalk.green(`🌷 UI(compiler): better styles`)}
     ${chalk.green(`🏰 chore(compiler): Made some changes to the scaffolding`)}
-    ${chalk.green(`🌐 locale(compiler): Made a small contribution to internationalization`)}\n
+    ${chalk.green(
+      `🌐 locale(compiler): Made a small contribution to internationalization`,
+    )}\n
     ${chalk.red(`See .github/commit-convention.md for more details.\n`)}`,
-      )
+      );
     }
 
-    process.exit(1)
-  })
+    process.exit(1);
+  });
 }
 
-export default () => {}
+export default () => {};
