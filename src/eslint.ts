@@ -251,12 +251,13 @@ module.exports = {
     // ],
     'no-use-before-define': 'off',
     'no-useless-escape': 'off',
+    // 'object-curly-spacing': 'off',
     'object-curly-spacing': [
       'error',
       'always',
       {
-        arraysInObjects: false,
-        objectsInObjects: false,
+        arraysInObjects: true,
+        objectsInObjects: true,
       },
     ],
     'prefer-template': 'off',

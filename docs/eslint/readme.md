@@ -6,14 +6,15 @@
 {
   rules: {
     // 待定 https://eslint.org/docs/rules/object-curly-spacing
-    // 'object-curly-spacing': [
-    //   'error',
-    //   'always',
-    //   {
-    //     arraysInObjects: true,
-    //     objectsInObjects: true,
-    //   },
-    // ],
+    // 可以 jsExample/src/index.js 测试验证效果
+    'object-curly-spacing': [
+      'error',
+      'always',
+      {
+        arraysInObjects: true,
+        objectsInObjects: true,
+      },
+    ],
     // 常见的冲突规则
     // 'import/export': 'error',      // 不要关闭
     'react/display-name': 0,    // 可以关闭 displayName, 便于调试

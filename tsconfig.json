@@ -29,6 +29,7 @@
     "src/setupTests.ts",
     "tslint:latest",
     "tslint-config-prettier",
+    "src/example/**",
     "tsExample/**",
     "jsExample/**"
   ],
