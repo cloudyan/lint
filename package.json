@@ -29,6 +29,7 @@
     "lib": "cross-env TIMING=1 eslint lib",
     "prepublishOnly": "npm run build && npm test && np --no-cleanup --yolo --no-publish --any-branch",
     "prelint": "npm run build",
+    "test": "npm run lint",
     "lint": "npm run lint:js",
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:css": "stylelint 'src/**/*.less' --syntax less",

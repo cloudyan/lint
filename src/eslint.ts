@@ -271,7 +271,7 @@ module.exports = {
     ],
     'quote-props': ['error', 'as-needed'],
     'require-yield': [1],
-    semi: ['error', 'always'], // always/never 可按需使用
+    semi: 0, // 不指定格式，无需关注，由 prettier 自动修复(always/never)
     'space-before-function-paren': [
       'error',
       {

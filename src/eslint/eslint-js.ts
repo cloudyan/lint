@@ -1,6 +1,5 @@
 export default {
-  rules: {
-    'prefer-destructuring': 0,
-    semi: 0,
-  },
+  camelcase: 0,
+  'no-empty-function': 0,
+  'prefer-destructuring': 0,
 };
