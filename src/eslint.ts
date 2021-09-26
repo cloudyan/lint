@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import tsEslintConfig from './tsEslintConfig';
+import jsEslint from './eslint/eslint-js';
 
 const isTsProject = fs.existsSync(
   path.join(process.cwd() || '.', './tsconfig.json'),
@@ -28,6 +29,8 @@ if (isTsProject) {
 }
 
 const parserOptions = {
+  // ecmaVersion: 'latest', // 2015 2020
+  // sourceType: 'module', // 默认 script
   ecmaFeatures: {
     jsx: true,
   },
@@ -86,8 +89,11 @@ module.exports = {
     jest: true,
     jasmine: true,
   },
+  globals: {
+    // writable readonly off
+  },
   rules: {
-    // 'react/display-name': 0,
+    'react/display-name': 0,
     // 'react/jsx-props-no-spreading': 0,
     // 'react/state-in-constructor': 0,
     // 'react/static-property-placement': 0,
@@ -100,7 +106,7 @@ module.exports = {
     // 'react/require-default-props': 0,
     // 'react/jsx-fragments': 0,
     // 'react/jsx-wrap-multilines': 0,
-    // 'react/prop-types': 0,
+    'react/prop-types': 0,
     // 'react/forbid-prop-types': 0,
     // 'react/sort-comp': 0,
     // 'react/react-in-jsx-scope': 0,
@@ -125,7 +131,7 @@ module.exports = {
     // 'jsx-a11y/no-static-element-interactions': 0,
     // 'jsx-a11y/anchor-is-valid': 0,
     // 'sort-imports': 0,
-    // 'class-methods-use-this': 0,
+    'class-methods-use-this': 0,
     // 'no-confusing-arrow': 0,
     // 'linebreak-style': 0,
     // // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
@@ -231,14 +237,7 @@ module.exports = {
     // ],
     'no-trailing-spaces': 'off',
     'no-underscore-dangle': 'off',
-    // 'no-unused-expressions': [
-    //   'error',
-    //   {
-    //     allowShortCircuit: true,
-    //     allowTernary: true,
-    //     allowTaggedTemplates: true,
-    //   },
-    // ],
+    'no-unused-expressions': 'off',
     'no-unused-vars': 'off',
     // 'no-unused-vars': [
     //   'error',
@@ -281,6 +280,7 @@ module.exports = {
         asyncArrow: 'ignore',
       },
     ],
+    ...jsEslint,
   },
   settings: {
     // support import modules from TypeScript files in JavaScript files
