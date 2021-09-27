@@ -8,7 +8,7 @@
 
 A collection of configuration files containing prettier, eslint, stylelint
 
-> 注意：使用 `@deepjs/lint` 检查时，因为eslint 等依赖安装在 `@deepjs/lint`,使用 yarn 安装有时导致找不到对应的 plugin 插件（未安装在当前项目下），可以改用 npm 安装
+> 注意：使用 `@deepjs/lint` 检查时，因为 eslint 等依赖安装在 `@deepjs/lint`,使用 yarn 安装有时导致找不到对应的 plugin 插件（未安装在当前项目下），可以改用 npm 安装
 
 # Use
 
@@ -63,24 +63,8 @@ module.exports = {
 
   rules: {
     // your rules
-
-    // 常见的冲突规则
-    // 'import/export': 0,
-    // 'react/display-name': 0,
-    // 'react/prop-types': 0,
-    // camelcase: 0,
-    // 'class-methods-use-this': 0,
-    // 'guard-for-in': 0,
-    // 'no-empty-function': 0,
-    // 'no-restricted-globals': 0,
-    // 'no-script-url': 0,
-    // 'no-unused-expressions': 0,
-    // 'object-curly-spacing': 0,
-    // 'prefer-destructuring': 0,
-    // 'prefer-rest-params': 0,
-    // semi: 0,
   },
-}
+};
 ```
 
 in `.stylelintrc.js`
@@ -91,7 +75,7 @@ module.exports = {
   rules: {
     // your rules
   },
-}
+};
 ```
 
 in `.prettierrc.js`
@@ -101,5 +85,5 @@ const lint = require('@deepjs/lint');
 
 module.exports = {
   ...lint.prettier,
-}
+};
 ```

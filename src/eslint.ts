@@ -3,31 +3,6 @@ import * as fs from 'fs';
 import tsEslintConfig from './tsEslintConfig';
 import jsEslint from './eslint/eslint-js';
 
-const isTsProject = fs.existsSync(
-  path.join(process.cwd() || '.', './tsconfig.json'),
-);
-console.log('isTsProject', isTsProject, path.join(process.cwd()));
-const isJsMoreTs = async (path2 = 'src') => {
-  // eslint-disable-next-line
-  const fg = require('fast-glob');
-  const jsFiles = await fg(`${path2}/src/**/*.{js,jsx}`, { deep: 3 });
-  const tsFiles = await fg(`${path2}/src/**/*.{ts,tsx}`, { deep: 3 });
-  return jsFiles.length > tsFiles.length;
-};
-
-if (isTsProject) {
-  try {
-    isJsMoreTs(process.cwd()).then((jsMoreTs) => {
-      if (!jsMoreTs) return;
-      // eslint-disable-next-line
-      console.log('这是一个 TypeScript 项目，如果不是请删除 tsconfig.json');
-    });
-  } catch (e) {
-    // eslint-disable-next-line
-    console.log(e);
-  }
-}
-
 const parserOptions = {
   // ecmaVersion: 'latest', // 2015 2020
   // sourceType: 'module', // 默认 script
@@ -50,6 +25,33 @@ const parserOptions = {
   requireConfigFile: false,
   project: './tsconfig.json',
 };
+
+const isJsMoreTs = async (path = 'src') => {
+  // eslint-disable-next-line
+  const fg = require('fast-glob');
+  const jsFiles = await fg(`${path}/src/**/*.{js,jsx}`, { deep: 3 });
+  const tsFiles = await fg(`${path}/src/**/*.{ts,tsx}`, { deep: 3 });
+  return jsFiles.length > tsFiles.length;
+};
+
+const isTsProject = fs.existsSync(
+  path.join(process.cwd() || '.', './tsconfig.json'),
+);
+
+console.log('isTsProject', isTsProject, path.join(process.cwd()));
+
+if (isTsProject) {
+  try {
+    isJsMoreTs(process.cwd()).then((jsMoreTs) => {
+      if (!jsMoreTs) return;
+      // eslint-disable-next-line
+      console.log('这是一个 TypeScript 项目，如果不是请删除 tsconfig.json');
+    });
+  } catch (e) {
+    // eslint-disable-next-line
+    console.log(e);
+  }
+}
 
 // if (isTsProject) {
 //   Object.assign(parserOptions, {
@@ -93,6 +95,7 @@ module.exports = {
     // writable readonly off
   },
   rules: {
+    strict: ['error', 'never'],
     'react/display-name': 0,
     // 'react/jsx-props-no-spreading': 0,
     // 'react/state-in-constructor': 0,
