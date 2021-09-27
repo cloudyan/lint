@@ -5,7 +5,7 @@
 
 Prettier 是一个代码格式化工具，可以帮你把代码格式化成可读性更好的格式，最典型的就是一行代码过长的问题。
 
-使用Prettier在code review时不需要再讨论代码样式，节省了时间与精力。
+使用 Prettier 在 code review 时不需要再讨论代码样式，节省了时间与精力。
 
 几个问题
 
@@ -32,7 +32,7 @@ const lint = require('@deepjs/lint');
 
 module.exports = {
   ...lint.prettier,
-}
+};
 ```
 
 相关 scripts 命令配置
@@ -66,9 +66,8 @@ module.exports = {
 
 // 文档 https://prettier.io/docs/en/options.html
 module.exports = {
-  singleQuote: true,
-  trailingComma: 'all',
-  endOfLine: 'auto',
+  singleQuote: true, // default false
+  trailingComma: 'all', // default es5
   // 以上为改动，其他选项都使用默认值
 
   overrides: [
@@ -85,9 +84,8 @@ module.exports = {
       },
     },
   ],
-}
+};
 ```
-
 
 ## prettier 所有配置项
 
@@ -104,12 +102,12 @@ module.exports = {
   // 是否在每行末尾添加分号
   semi: true,
   // 使用单引号，而不是双引号
-  singleQuote: false,             // TIP 可设置为 true
+  singleQuote: false, // TIP 可设置为 true
   // 仅在需要时在对象属性周围添加引号
   quoteProps: 'as-needed',
   // 在 JSX 中使用单引号代替双引号
   jsxSingleQuote: false,
-  trailingComma: 'es5',           // TIP all
+  trailingComma: 'es5', // TIP all
   // 控制对象字面量的空格输出, true example: { foo: bar }
   bracketSpacing: true,
   // 将HTML 起始标签的 `>` 符号(true)放在最后一行的末尾，而非(false)单独放一行
@@ -131,7 +129,7 @@ module.exports = {
   // */
   requirePragma: false, // 自动化工具使用，优先于 insertPragma
   // 在文件顶部插入一个特殊标记，指定文件已使用 Prettier 格式化
-  insertPragma: false,  // 与requirePragma一起使用很有效
+  insertPragma: false, // 与requirePragma一起使用很有效
   // 默认情况下，Prettier 将按原样包装 Markdown 文本
   // （Markdown）将散文包含在多行中
   proseWrap: 'preserve',
@@ -142,7 +140,7 @@ module.exports = {
   vueIndentScriptAndStyle: false,
   // 指定 prettier 的换行符
   // lf 在旧版本的 Windows 记事本会将这些行从视觉上压缩为一条
-  endOfLine: 'lf',              // TIP auto
+  endOfLine: 'lf', // TIP 我们就使用默认即可
   // 控制 Prettier 是否格式化文件中嵌入的引用代码
   embeddedLanguageFormatting: 'off',
   overrides: [
@@ -159,7 +157,7 @@ module.exports = {
       },
     },
   ],
-}
+};
 ```
 
 vscode 中的 prettier 还有如下配置

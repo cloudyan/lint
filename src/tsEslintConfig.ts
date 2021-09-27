@@ -92,7 +92,7 @@ export default {
   '@typescript-eslint/no-unsafe-member-access': 0,
   '@typescript-eslint/no-unsafe-return': 0,
   'no-unused-expressions': 'off',
-  '@typescript-eslint/no-unused-expressions': 'error',
+  '@typescript-eslint/no-unused-expressions': 'off',
   // 'no-unused-vars': 'off',
   'no-useless-constructor': 'off',
   '@typescript-eslint/no-useless-constructor': 'error',
