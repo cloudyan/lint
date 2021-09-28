@@ -89,7 +89,6 @@ screenshot
 .eslintcache
 dist
 yarn.lock
-package-lock.json
 /react/
 /vue/
 scripts

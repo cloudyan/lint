@@ -37,9 +37,9 @@
     "lint:js:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:css:fix": "stylelint --fix 'src/**/*.less' --syntax less",
     "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
-    "testTS": "npm run build && cd tsExample && npm run lint",
-    "testJS": "npm run build && cd jsExample && npm run lint",
-    "test": "npm run testTS && npm run testJS"
+    "testTS": "cd tsExample && npm run lint",
+    "testJS": "cd jsExample && npm run lint",
+    "test": "npm run testTS && npm run testJS && npm run build"
   },
   "gitHooks": {
     "pre-commit": "lint-staged && npm run lint"

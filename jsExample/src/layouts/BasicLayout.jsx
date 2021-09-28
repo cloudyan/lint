@@ -1,16 +1,15 @@
 /**
- * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout.
- * You can view component api by:
- * https://github.com/ant-design/ant-design-pro-layout
+ * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout. You can view
+ * component api by: https://github.com/ant-design/ant-design-pro-layout
  */
 import ProLayout, { DefaultFooter } from '@ant-design/pro-layout';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { Link, useIntl, connect, history } from 'umi';
 import { GithubOutlined } from '@ant-design/icons';
 import { Result, Button } from 'antd';
+import { getMatchMenu } from '@umijs/route-utils';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
-import { getMatchMenu } from '@umijs/route-utils';
 import logo from '../assets/logo.svg';
 
 const noMatch = (
@@ -26,9 +25,7 @@ const noMatch = (
   />
 );
 
-/**
- * use Authorized check all menu item
- */
+/** Use Authorized check all menu item */
 const menuDataRender = (menuList) =>
   menuList.map((item) => {
     const localItem = {
@@ -81,9 +78,7 @@ const BasicLayout = (props) => {
       });
     }
   }, []); // eslint-disable-line
-  /**
-   * init variables
-   */
+  /** Init variables */
 
   const handleMenuCollapse = (payload) => {
     if (dispatch) {
