@@ -12,3 +12,4 @@ jobs:
         uses: cirrus-actions/rebase@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # https://docs.github.com/cn/actions/reference/authentication-in-a-workflow
