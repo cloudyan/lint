@@ -92,3 +92,4 @@ yarn.lock
 package-lock.json
 /react/
 /vue/
+scripts

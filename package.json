@@ -29,7 +29,6 @@
     "lib": "cross-env TIMING=1 eslint lib",
     "prepublishOnly": "npm run build && npm test && np --no-cleanup --yolo --no-publish --any-branch",
     "prelint": "npm run build",
-    "test": "npm run lint",
     "lint": "npm run lint:js",
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:css": "stylelint 'src/**/*.less' --syntax less",
@@ -38,9 +37,9 @@
     "lint:js:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:css:fix": "stylelint --fix 'src/**/*.less' --syntax less",
     "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
-    "lintTS": "npm run build && cd tsExample && npm run lint",
-    "lintJS": "npm run build && cd jsExample && npm run lint",
-    "lint:example": "npm run lintTS && npm run lintJS"
+    "testTS": "npm run build && cd tsExample && npm run lint",
+    "testJS": "npm run build && cd jsExample && npm run lint",
+    "test": "npm run testTS && npm run testJS"
   },
   "gitHooks": {
     "pre-commit": "lint-staged && npm run lint"
