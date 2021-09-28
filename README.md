@@ -39,13 +39,13 @@ eslint 使用 --cache 可能会让修改的配置不会立即生效
 ```js
 "scripts": {
   "lint": "npm run lint:js && npm run lint:css",
-  "lint:js": "cross-env TIMING=1 eslint --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+  "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
   "lint:css": "stylelint 'src/**/*.less' --syntax less",
-  "lint:prettier": "prettier --check '**/*' --end-of-line auto",
+  "lint:prettier": "prettier --check 'src/**/*' --end-of-line auto",
   "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:prettier:fix",
-  "lint:js:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+  "lint:js:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
   "lint:css:fix": "stylelint --fix 'src/**/*.less' --syntax less",
-  "lint:prettier:fix": "prettier -c --write '**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version"
+  "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
 }
 ```
 
