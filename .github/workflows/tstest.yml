@@ -20,7 +20,7 @@ jobs:
           registry-url: 'https://registry.yarnpkg.com'
 
       - name: install
-        run: npm install
+        run: npm cache clean -fg && npm install
 
       - name: install
         run: cd tsExample && npm install
