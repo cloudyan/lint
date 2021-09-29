@@ -1,7 +1,12 @@
+**/*.md
 **/*.svg
+**/*.ejs
+**/*.html
 package.json
 .umi
 .umi-production
+.umi-test
+
 /dist
 .dockerignore
 .DS_Store
@@ -21,3 +26,5 @@ yarn-error.log
 CNAME
 /build
 /public
+
+
