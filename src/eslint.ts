@@ -95,8 +95,8 @@ module.exports = {
     // writable readonly off
   },
   rules: {
-    ...jsEslint,
     ...(isTsProject ? tsEslintConfig : {}),
+    ...jsEslint,
   },
   settings: {
     // support import modules from TypeScript files in JavaScript files
