@@ -10,7 +10,18 @@ A collection of configuration files containing prettier, eslint, stylelint
 
 > 注意：使用 `@deepjs/lint` 检查时，因为 eslint 等依赖安装在 `@deepjs/lint`,使用 yarn 安装有时导致找不到对应的 plugin 插件（未安装在当前项目下），可以改用 npm 安装
 
-# Use
+## Todo
+
+实现自定义命令行，完成代码配置以及检查，并输出结果
+
+- 跟随项目
+  - [ ] lint init 完成配置初始化（配置跟随项目走）
+- 统一命令行控制
+- [ ] lint --check 执行代码格式化检查
+- [ ] lint --fix 执行代码格式化自动修复
+- [ ] lint --doctor 配置检查
+
+## Use
 
 安装
 
@@ -86,4 +97,29 @@ const lint = require('@deepjs/lint');
 module.exports = {
   ...lint.prettier,
 };
+```
+
+in `.editorconfig`
+
+```yaml
+# https://editorconfig.org/
+root = true
+
+[*] # 匹配所有的文件
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.js] # 对所有的 js 文件生效
+# 字符串使用单引号
+quote_type = single
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
 ```
