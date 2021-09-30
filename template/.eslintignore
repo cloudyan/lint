@@ -7,3 +7,6 @@ dist
 .umi
 .umi-production
 mock
+
+src/index.ts
+locales

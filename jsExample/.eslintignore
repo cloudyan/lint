@@ -6,3 +6,7 @@ public
 dist
 .umi
 mock
+
+src/index.ts
+locales
+

@@ -1,7 +1,24 @@
 export default {
-  strict: ['error', 'never'],
+  'import/extensions': 'off',
+  'import/named': 'off',
+  'import/no-cycle': 'off',
+  'import/no-default-export': 'off',
+  'import/no-duplicates': 'off',
+  'import/no-extraneous-dependencies': 'off',
+  'import/no-named-as-default': 'off',
+  'import/no-named-as-default-member': 'off',
+  'import/no-named-default': 'off',
+  'import/no-self-import': 'off',
+  'import/no-unresolved': 'off',
+  'import/no-useless-path-segments': 'off',
+  'import/order': 'error',
+  'import/prefer-default-export': 'off',
+  // 'jsx-a11y/no-noninteractive-element-interactions': 'off',
+  // 'jsx-a11y/click-events-have-key-events': 'off',
+  // 'jsx-a11y/no-static-element-interactions': 'off',
+  // 'jsx-a11y/anchor-is-valid': 'off',
   'react/display-name': 'off',
-  'prefer-promise-reject-errors': 'off',
+  'react/prop-types': 'off',
   // 'react/jsx-props-no-spreading': 'off',
   // 'react/state-in-constructor': 'off',
   // 'react/static-property-placement': 'off',
@@ -14,48 +31,118 @@ export default {
   // 'react/require-default-props': 'off',
   // 'react/jsx-fragments': 'off',
   // 'react/jsx-wrap-multilines': 'off',
-  'react/prop-types': 'off',
   // 'react/forbid-prop-types': 'off',
   // 'react/sort-comp': 'off',
   // 'react/react-in-jsx-scope': 'off',
   // 'react/jsx-one-expression-per-line': 'off',
-  // 'generator-star-spacing': 'off',
-  // // 'function-paren-newline': 'off',
-  'import/no-unresolved': 'off',
-  'import/order': 'error',
-  'import/no-named-as-default': 'off',
-  'import/no-cycle': 'off',
-  'import/prefer-default-export': 'off',
-  'import/no-default-export': 'off',
-  'import/no-extraneous-dependencies': 'off',
-  'import/named': 'off',
-  'import/no-named-as-default-member': 'off',
-  'import/no-duplicates': 'off',
-  'import/no-self-import': 'off',
-  'import/extensions': 'off',
-  'import/no-useless-path-segments': 'off',
-  'no-use-before-define': 'off',
+  // 'unicorn/prevent-abbreviations': 'off',
+  // ['unicorn/filename-case'](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/HEAD/docs/rules/filename-case.md)
+  'unicorn/filename-case': [
+    'error',
+    {
+      cases: {
+        kebabCase: true, // foo-bar.js
+        camelCase: false, // fooBar.js
+        snakeCase: false, // foo_bar.js
+        pascalCase: false, // FooBar.js
+      },
+      ignore: [
+        // 不能匹配文件夹, 如 locales, 可配合 eslintignore 使用
+        // /^zh-CN\.[j|t]s$/,
+      ],
+    },
+  ],
+
+  // my rules: off warn error
+  'array-bracket-spacing': 'error',
+
   'arrow-body-style': 'off',
-  'no-param-reassign': 'off',
-  'func-names': 'off',
-  // 'jsx-a11y/no-noninteractive-element-interactions': 'off',
-  // 'jsx-a11y/click-events-have-key-events': 'off',
-  // 'jsx-a11y/no-static-element-interactions': 'off',
-  // 'jsx-a11y/anchor-is-valid': 'off',
+  // 'arrow-body-style': ['error', 'as-needed', {
+  //   'requireReturnForObjectLiteral': true,
+  // }],
+  camelcase: 'off',
+
   // 'sort-imports': 'off',
   'class-methods-use-this': 'off',
+  'comma-dangle': [
+    'error',
+    {
+      // before: false,
+      // after: true,
+      arrays: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+      imports: 'always-multiline',
+      objects: 'always-multiline',
+    },
+  ],
+  'comma-spacing': 'error',
+
+  'consistent-return': 'off',
+  'func-names': 'off',
+  // 'function-paren-newline': 'off',
+  'no-bitwise': 'off',
+  'no-console': process.env.NODE_ENV === 'production' ? 'off' : 'off',
+  'no-continue': 'off',
+  'no-debugger': process.env.NODE_ENV === 'production' ? 'off' : 'off',
+  'no-else-return': 'off',
+  'no-empty': [
+    'error',
+    {
+      allowEmptyCatch: true,
+    },
+  ],
+  'no-empty-function': 'off',
+  // 'brace-style': 'off',
+  // 'comma-dangle': 'off',
+  // 'comma-spacing': 'off',
+  // 'default-param-last': 'off',
+  // 'dot-notation': 'off',
+  // 'func-call-spacing': 'off',
+  // indent: 'off',
+  // 'init-declarations': 'off',
+  // 'keyword-spacing': 'off',
+  // 'lines-between-class-members': 'off',
+  // 'no-array-constructor': 'off',
+  // 'no-dupe-class-members': 'off',
+  // 'no-duplicate-imports': 'off',
+  // 'no-extra-semi': 'off',
+  'no-extra-parens': 'off',
+  'no-implied-eval': 'off',
+  'no-inner-declarations': 'warn',
+  'no-invalid-this': 'off',
+  // 不使用 else if，也能使代码比较清晰
+  'no-lonely-if': 'off',
+  'no-loop-func': 'off',
+  'no-loss-of-precision': 'off',
+  'no-magic-numbers': 'off',
+  'no-mixed-operators': 'off',
+  'no-multi-spaces': [
+    'error',
+    {
+      ignoreEOLComments: true,
+    },
+  ],
+  'no-multiple-empty-lines': [
+    'error',
+    {
+      max: 2,
+      maxEOF: 1,
+    },
+  ],
+  'no-nested-ternary': 'off',
+  'no-param-reassign': 'off',
+  'no-plusplus': [
+    'off',
+    {
+      allowForLoopAfterthoughts: true,
+    },
+  ],
+  'no-redeclare': 'off',
   // 'no-confusing-arrow': 'off',
   // 'linebreak-style': 'off',
   // // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
   // 'no-prototype-builtins': 'off',
-  // 'unicorn/prevent-abbreviations': 'off',
-  // ['unicorn/filename-case'](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/HEAD/docs/rules/filename-case.md)
-  // 'unicorn/filename-case': ['error', {
-  //   // case: '',
-  //   ignore: [
-  //     '^IGNORE\\.js$',
-  //   ],
-  // }],
   // // Conflict with prettier
   // 'arrow-parens': 'off',
   // 'object-curly-newline': 'off',
@@ -72,96 +159,11 @@ export default {
       ],
     },
   ],
-  camelcase: 'off',
-  // 'brace-style': 'off',
-  // 'comma-dangle': 'off',
-  // 'comma-spacing': 'off',
-  // 'default-param-last': 'off',
-  // 'dot-notation': 'off',
-  // 'func-call-spacing': 'off',
-  // indent: 'off',
-  // 'init-declarations': 'off',
-  // 'keyword-spacing': 'off',
-  // 'lines-between-class-members': 'off',
-  // 'no-array-constructor': 'off',
-  // 'no-dupe-class-members': 'off',
-  // 'no-duplicate-imports': 'off',
-  // 'no-extra-semi': 'off',
-  'no-implied-eval': 'off',
-  'no-invalid-this': 'off',
-  'no-loop-func': 'off',
-  'no-loss-of-precision': 'off',
-  'no-magic-numbers': 'off',
-  'no-redeclare': 'off',
-  // 'no-shadow': 'off',
-  // 'no-unused-vars': 'off',
-  // quotes: 'off',
-  // semi: 'off',
 
-  'space-infix-ops': 'off',
-  'no-return-await': 'off',
-  'require-await': 'off',
-  'no-throw-literal': 'off',
-  'prefer-destructuring': 'off',
-  'no-empty-function': 'off',
-  // 'no-undef': 'off',
-  'no-useless-constructor': 'off',
-  'no-unused-expressions': 'off',
-
-  // mine: off warn error
-  'array-bracket-spacing': 'error',
-  // 'arrow-body-style': ['error', 'as-needed', {
-  //   'requireReturnForObjectLiteral': true,
-  // }],
-  'consistent-return': 'off',
-  'comma-dangle': [
-    'error',
-    {
-      // before: false,
-      // after: true,
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'always-multiline',
-    },
-  ],
-  'comma-spacing': 'error',
-  'no-bitwise': 'off',
-  'no-continue': 'off',
-  'no-else-return': 'off',
-  'no-empty': [
-    'error',
-    {
-      allowEmptyCatch: true,
-    },
-  ],
-  'no-inner-declarations': 'warn',
-  'no-lonely-if': 'off', // 不使用 else if，也能使代码比较清晰
-  'no-mixed-operators': 'off',
-  'no-multi-spaces': [
-    'error',
-    {
-      ignoreEOLComments: true,
-    },
-  ],
-  'no-multiple-empty-lines': [
-    'error',
-    {
-      max: 2,
-      maxEOF: 1,
-    },
-  ],
-  'no-nested-ternary': 'off',
-  'no-plusplus': [
-    'off',
-    {
-      allowForLoopAfterthoughts: true,
-    },
-  ],
   'no-restricted-syntax': 'off',
+  'no-return-await': 'off',
   'no-shadow': 'off',
-
+  'no-throw-literal': 'off',
   // 'no-shadow': [
   //   'error',
   //   {
@@ -181,7 +183,12 @@ export default {
   // ],
   'no-trailing-spaces': 'off',
   'no-underscore-dangle': 'off',
+  'no-unused-expressions': 'off',
   'no-unused-vars': 'off',
+  // 'generator-star-spacing': 'off',
+  'no-use-before-define': 'off',
+  // 'no-undef': 'off',
+  'no-useless-constructor': 'off',
   // 'no-unused-vars': [
   //   'error',
   //   {
@@ -202,20 +209,29 @@ export default {
       objectsInObjects: true,
     },
   ],
-  'prefer-template': 'off',
   'prefer-arrow-callback': 'off',
+  'prefer-destructuring': 'off',
+  'prefer-promise-reject-errors': 'off',
+  'prefer-template': 'off',
+  'quote-props': ['error', 'as-needed'],
   quotes: [
     'error',
     'single',
     {
-      avoidEscape: true,
       allowTemplateLiterals: true,
+      avoidEscape: true,
     },
   ],
-  'quote-props': ['error', 'as-needed'],
-  'require-yield': [1],
-  semi: 'off', // 不指定格式，无需关注，由 prettier 自动修复即可 (always/never)
+  'require-await': 'off',
+  'require-yield': 'warn',
+  semi: 'off',
+  // 不指定格式，无需关注，由 prettier 自动修复即可 (always/never)
   'space-before-function-paren': 'off',
+  // 'no-shadow': 'off',
+  // 'no-unused-vars': 'off',
+  // quotes: 'off',
+  // semi: 'off',
+  'space-infix-ops': 'off',
   // 'space-before-function-paren': [
   //   'error',
   //   {
@@ -224,6 +240,5 @@ export default {
   //     asyncArrow: 'ignore',
   //   },
   // ],
-  'no-console': process.env.NODE_ENV === 'production' ? 'off' : 'off',
-  'no-debugger': process.env.NODE_ENV === 'production' ? 'off' : 'off',
+  strict: ['error', 'never'],
 };

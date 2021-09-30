@@ -37,7 +37,7 @@ const option = args._[0];
 switch (option) {
   case 'verify-commit':
     // eslint-disable-next-line global-require
-    require('./dist/verifyCommit');
+    require('./dist/verify-commit');
     break;
 
   default:
