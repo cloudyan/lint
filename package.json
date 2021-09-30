@@ -27,7 +27,7 @@
     "build": "tsc --build tsconfig.json",
     "deps": "yarn upgrade-interactive --latest",
     "lib": "cross-env TIMING=1 eslint lib",
-    "prepublishOnly": "np --no-cleanup --no-yarn --yolo --no-publish --any-branch",
+    "prepublishOnly": "np --no-cleanup --no-yarn --yolo --no-publish --any-branch --no-verify",
     "prelint": "npm run build",
     "lint": "npm run lint:js",
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
