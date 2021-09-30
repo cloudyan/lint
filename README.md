@@ -10,6 +10,21 @@ A collection of configuration files containing prettier, eslint, stylelint
 
 > 注意：使用 `@deepjs/lint` 检查时，因为 eslint 等依赖安装在 `@deepjs/lint`,使用 yarn 安装有时导致找不到对应的 plugin 插件（未安装在当前项目下），可以改用 npm 安装
 
+## 规则列表
+
+- css
+- html
+- javascript
+- typescript
+- eslint
+- prettier
+- stylelint
+- editorconfig
+- json
+- vue
+- react
+- sonar
+
 ## Todo
 
 实现自定义命令行，完成代码配置以及检查，并输出结果

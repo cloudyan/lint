@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import tsEslintConfig from './tsEslintConfig';
-import jsEslint from './eslint/eslint-js';
+import jsEslintConfig from './eslint/eslint-js';
+import tsEslintConfig from './eslint/eslint-ts';
 
 const parserOptions = {
   // ecmaVersion: 'latest', // 2015 2020
@@ -96,7 +96,7 @@ module.exports = {
   },
   rules: {
     ...(isTsProject ? tsEslintConfig : {}),
-    ...jsEslint,
+    ...jsEslintConfig,
   },
   settings: {
     // support import modules from TypeScript files in JavaScript files

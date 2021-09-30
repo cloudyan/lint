@@ -1,7 +1,7 @@
 /** @format */
 
 const strictEslint = require('./eslint');
-const softyEslint = require('./softyEslint');
+const softyEslint = require('./softy-eslint');
 const stylelint = require('./stylelint');
 const prettier = require('./prettier');
 
