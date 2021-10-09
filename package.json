@@ -39,19 +39,20 @@
     "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
     "testTS": "npm run build && cd tsExample && npm run lint",
     "testJS": "npm run build && cd jsExample && npm run lint",
-    "test": "npm run testTS && npm run testJS"
+    "test": "npm run testTS && npm run testJS",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
+    "*{.ts,.js}": [
+      "eslint --ext .tsx,.ts --fix ./src",
+      "prettier --write",
+      "git add"
     ]
   },
   "dependencies": {
@@ -62,9 +63,11 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@commitlint/config-conventional": "13.2.0",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
     "chalk": "^4.1.2",
+    "commitlint": "13.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -81,6 +84,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^36.0.0",
     "fast-glob": "^3.2.7",
+    "husky": "7.0.2",
     "lint-staged": "11.1.2",
     "os-locale": "^6.0.0",
     "prettier": "^2.4.1",
@@ -98,7 +102,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "husky": "7.0.2",
     "np": "^7.5.0"
   }
 }
