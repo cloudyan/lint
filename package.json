@@ -1,6 +1,6 @@
 {
   "name": "@deepjs/lint",
-  "version": "0.0.11",
+  "version": "0.0.16",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "lint",
@@ -27,7 +27,7 @@
     "build": "tsc --build tsconfig.json",
     "deps": "yarn upgrade-interactive --latest",
     "lib": "cross-env TIMING=1 eslint lib",
-    "prepublishOnly": "np --no-cleanup --yolo --no-publish --any-branch",
+    "prepublishOnly": "np --no-cleanup --no-yarn --yolo --no-publish --any-branch --no-verify",
     "prelint": "npm run build",
     "lint": "npm run lint:js",
     "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
@@ -39,30 +39,35 @@
     "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
     "testTS": "npm run build && cd tsExample && npm run lint",
     "testJS": "npm run build && cd jsExample && npm run lint",
-    "test": "npm run testTS && npm run testJS"
+    "test": "npm run testTS && npm run testJS",
+    "prepare": "husky install"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged && npm run lint && npm run test"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
+    "*{.ts,.js}": [
+      "eslint --ext .tsx,.ts --fix ./src",
+      "prettier --write",
+      "git add"
     ]
   },
   "dependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/eslint-parser": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/eslint-parser": "^7.15.8",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-proposal-decorators": "^7.15.4",
-    "@babel/preset-env": "^7.15.6",
+    "@babel/plugin-proposal-decorators": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
-    "@typescript-eslint/eslint-plugin": "^4.32.0",
-    "@typescript-eslint/parser": "^4.32.0",
+    "@commitlint/config-conventional": "13.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "chalk": "^4.1.2",
+    "commitlint": "13.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -70,30 +75,30 @@
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-compat": "^3.13.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jest": "^24.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^24.7.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-markdown": "^2.2.1",
-    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^36.0.0",
     "fast-glob": "^3.2.7",
+    "husky": "7.0.2",
     "lint-staged": "11.1.2",
-    "os-locale": "^6.0.0",
+    "os-locale": "^6.0.1",
     "prettier": "^2.4.1",
     "prettier-plugin-jsdoc": "0.3.24",
     "prettier-plugin-style-order": "0.2.2",
     "stylelint": "^13.13.1",
-    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-css-modules": "^2.3.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.4.0",
     "stylelint-no-unsupported-browser-features": "^5.0.2",
     "stylelint-order": "^4.1.0",
-    "typescript": "^4.4.3",
-    "yorkie": "2.0.0"
+    "typescript": "^4.4.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
