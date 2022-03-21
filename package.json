@@ -40,6 +40,9 @@
     "testTS": "npm run build && cd tsExample && npm run lint",
     "testJS": "npm run build && cd jsExample && npm run lint",
     "test": "npm run testTS && npm run testJS",
+    "commitmsg": "validate-commit-msg",
+    "commit": "npx git-cz ",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "prepare": "husky install"
   },
   "husky": {
@@ -102,6 +105,8 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "np": "^7.5.0"
+    "np": "^7.5.0",
+    "validate-commit-msg": "^2.14.0",
+    "husky": "^7.0.0"
   }
 }

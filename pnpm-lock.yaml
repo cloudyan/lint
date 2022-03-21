@@ -46,6 +46,7 @@ specifiers:
   stylelint-no-unsupported-browser-features: ^5.0.2
   stylelint-order: ^4.1.0
   typescript: ^4.4.4
+  validate-commit-msg: ^2.14.0
 
 dependencies:
   '@babel/core': 7.15.8
@@ -95,6 +96,7 @@ dependencies:
 devDependencies:
   cross-env: 7.0.3
   np: 7.5.0
+  validate-commit-msg: 2.14.0
 
 packages:
 
@@ -2583,6 +2585,16 @@ packages:
     resolution: {integrity: sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==}
     dev: false
 
+  /colors/0.6.2:
+    resolution: {integrity: sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=}
+    engines: {node: '>=0.1.90'}
+    dev: true
+
+  /commander/2.1.0:
+    resolution: {integrity: sha1-0SG7roYNmZKj1Re6lvVliOR8Z4E=}
+    engines: {node: '>= 0.6.x'}
+    dev: true
+
   /commander/7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
@@ -2648,6 +2660,10 @@ packages:
       lodash: 4.17.21
       q: 1.5.1
     dev: false
+
+  /conventional-commit-types/2.3.0:
+    resolution: {integrity: sha512-6iB39PrcGYdz0n3z31kj6/Km6mK9hm9oMRhwcLnKxE7WNoeRKZbTAobliKrbYZ5jqyCvtcVEfjCiaEzhL3AVmQ==}
+    dev: true
 
   /conventional-commits-parser/3.2.3:
     resolution: {integrity: sha512-YyRDR7On9H07ICFpRm/igcdjIqebXbvf4Cff+Pf0BrBys1i1EOzx9iFXNlAbdrLAR8jf7bkUYkDAr8pEy0q4Pw==}
@@ -3658,6 +3674,10 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
 
+  /find-parent-dir/0.3.1:
+    resolution: {integrity: sha512-o4UcykWV/XN9wm+jMEtWLPlV8RXCZnMhQI6F6OdHeSez7iiJWePw8ijOlskJZMsaQoGR/b7dH6lO02HhaTN7+A==}
+    dev: true
+
   /find-up/2.1.0:
     resolution: {integrity: sha1-RdG35QbHF93UgndaK3eSCjwMV6c=}
     engines: {node: '>=4'}
@@ -3678,6 +3698,15 @@ packages:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  /findup/0.1.5:
+    resolution: {integrity: sha1-itkpozk7rGJ5V6fl3kYjsGsOLOs=}
+    engines: {node: '>=0.6'}
+    hasBin: true
+    dependencies:
+      colors: 0.6.2
+      commander: 2.1.0
+    dev: true
 
   /flat-cache/2.0.1:
     resolution: {integrity: sha512-LoQe6yDuUMDzQAEH8sgmh4Md6oZnc/7PjtwjNFSzveXqSHt6ka9fPBuso7IGf9Rz4uqnSnWiFH2B/zj24a5ReA==}
@@ -6616,6 +6645,11 @@ packages:
       semver: 6.3.0
     dev: true
 
+  /semver-regex/1.0.0:
+    resolution: {integrity: sha1-kqSWkGX5xwxpR1PVUkj8aPj2Usk=}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
     hasBin: true
@@ -7666,6 +7700,17 @@ packages:
   /vali-date/1.0.0:
     resolution: {integrity: sha1-G5BKWWCfsyjvB4E4Qgk09rhnCaY=}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /validate-commit-msg/2.14.0:
+    resolution: {integrity: sha1-5Tg2kQEsuycNzAvCpO/+vhSJDqw=}
+    deprecated: Check out CommitLint which provides the same functionality with a more user-focused experience.
+    hasBin: true
+    dependencies:
+      conventional-commit-types: 2.3.0
+      find-parent-dir: 0.3.1
+      findup: 0.1.5
+      semver-regex: 1.0.0
     dev: true
 
   /validate-npm-package-license/3.0.4:
