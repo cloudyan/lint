@@ -3,6 +3,7 @@ module.exports = {
     '@commitlint/config-conventional',
   ],
   // https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
+  // prettier-ignore
   rules: {
     'type-enum': [2, 'always', [
       'build',    // 构建过程变动
