@@ -1,5 +1,3 @@
-const lint = require('@deepjs/lint');
+const { prettier } = require('@deepjs/lint')
 
-module.exports = {
-  ...lint.prettier,
-};
+module.exports = prettier
