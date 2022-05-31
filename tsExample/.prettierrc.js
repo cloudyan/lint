@@ -1,6 +1,7 @@
-const lint = require('../dist/index');
+
+const { stylelint } = require('../dist')
 
 module.exports = {
-  ...lint.prettier,
+  ...stylelint,
   semi: true,
-};
+}

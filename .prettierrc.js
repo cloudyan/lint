@@ -1,5 +1,3 @@
-const lint = require('./dist/index');
+const { prettier } = require('./dist')
 
-module.exports = {
-  ...lint.prettier,
-};
+module.exports = prettier

@@ -92,7 +92,7 @@ module.exports = {
   rules: {
     // your rules
   },
-};
+}
 ```
 
 in `.stylelintrc.js`
@@ -103,17 +103,17 @@ module.exports = {
   rules: {
     // your rules
   },
-};
+}
 ```
 
 in `.prettierrc.js`
 
 ```js
-const lint = require('@deepjs/lint');
+const lint = require('@deepjs/lint')
 
 module.exports = {
   ...lint.prettier,
-};
+}
 ```
 
 in `.editorconfig`
