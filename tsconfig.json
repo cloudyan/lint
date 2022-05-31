@@ -7,6 +7,7 @@
     "baseUrl": ".",
     "jsx": "react",
     "resolveJsonModule": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
@@ -33,9 +34,5 @@
     "tsExample/**",
     "jsExample/**"
   ],
-  "include": [
-    "src/**/*.json",
-    "src/**/*.ts",
-    "src/**/*.js"
-  ]
+  "include": ["src/**/*.json", "src/**/*.ts", "src/**/*.js"]
 }

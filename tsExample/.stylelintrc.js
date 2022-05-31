@@ -1,5 +1,4 @@
-const lint = require('../dist/index');
 
-module.exports = {
-  ...lint.stylelint,
-};
+const { stylelint } = require('../dist')
+
+module.exports = stylelint

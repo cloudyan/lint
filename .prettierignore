@@ -18,4 +18,8 @@ LICENSE
 *.lock
 yarn-error.log
 .history
-/template
+
+temp/
+template/
+jsExample
+tsExample

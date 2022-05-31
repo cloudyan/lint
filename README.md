@@ -1,29 +1,76 @@
-<!-- @format -->
-
 # `@deepjs/lint`
 
-基于 [@umijs/fabric](https://github.com/umijs/fabric) 修改
+> 一个包含 prettier，eslint，stylelint 的配置文件合集。
+>
+> 基于 [@umijs/fabric](https://github.com/umijs/fabric) 修改。1.x 版本后 Break Change, 后续会另适配测试用例
 
-一个包含 prettier，eslint，stylelint 的配置文件合集
+## Usage
 
-A collection of configuration files containing prettier, eslint, stylelint
+将 lint 配置及依赖提取，通过一个 npm 包统一管理。
 
-> 注意：使用 `@deepjs/lint` 检查时，因为 eslint 等依赖安装在 `@deepjs/lint`,使用 yarn 安装有时导致找不到对应的 plugin 插件（未安装在当前项目下），可以改用 npm 安装
+```bash
+npm i --save-dev @deepjs/lint eslint stylelint prettier @commitlint/cli husky lint-staged cross-env
 
-## 规则列表
+# 不需要再安装其他 Lint 插件或者插件集等依赖，@deepjs/lint 中已包含这部分依赖。
+```
 
-- css
-- html
-- javascript
-- typescript
-- eslint
-- prettier
-- stylelint
-- editorconfig
-- json
-- vue
-- react
-- sonar
+配置文件使用如下
+
+相关 ignore 文件, 自行按需配置 `.eslintignore`, `.prettierignore`, `.stylelintignore`
+
+```js
+// .prettierrc.js
+const { prettier } = require('@deepjs/lint')
+module.exports = prettier
+
+
+// .eslintrc.js
+// eslintVue eslintReact eslintReactTs
+const { eslint } = require('@deepjs/lint')
+module.exports = eslint
+
+
+// .stylelint.js
+const { stylelint } = require('@deepjs/lint')
+module.exports = stylelint
+
+
+// .commitlintrc.js
+const { commitlint } = require('@deepjs/lint')
+module.exports = commitlint
+
+
+// browserslist h5/pc/mini
+{
+  "browserslist": [
+    "extends @deepjs/lint"
+  ]
+}
+```
+
+配置 package.json
+
+```jsonc
+{
+  "scripts": {
+    "eslint": "cross-env TIMING=1 eslint --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "eslint:fix": "npm run eslint -- --fix",
+    "eslint:report": "npm run eslint -- --format json --output-file ./eslint-report.json",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install",
+    "prettier": "prettier . --check",
+    "prettier:diff": "npm run prettier:fix && git --no-pager diff && git checkout -- .",
+    "prettier:fix": "npm run prettier -- --write",
+    "stylelint": "stylelint --allow-empty-input 'src/**/*.{css,less,scss,sass}'",
+    "stylelint:fix": "npm run stylelint -- --fix"
+  },
+  "lint-staged": {
+    "*.{json,md,yml,yaml}": ["npm run prettier:fix"],
+    "*.{js,jsx,ts,tsx}": ["npm run prettier:fix", "npm run eslint:fix"],
+    "*.{css,less,scss}": ["npm run prettier:fix", "npm run stylelint:fix"]
+  }
+}
+```
 
 ## Todo
 
@@ -35,106 +82,3 @@ A collection of configuration files containing prettier, eslint, stylelint
 - [ ] lint --check 执行代码格式化检查
 - [ ] lint --fix 执行代码格式化自动修复
 - [ ] lint --doctor 配置检查
-
-## Use
-
-安装
-
-```bash
-npm i @deepjs/lint --save-dev
-yarn add @deepjs/lint -D
-
-# lint 需要安装命令项 如 eslint prettier stylelint
-npm run lint # 制作语法格式检查，不做修复
-npm run lint:js
-npm run lint:css
-npm run lint:prettier
-npm run lint:fix # 修复语法格式等
-npm run lint:js:fix
-npm run lint:css:fix
-npm run lint:prettier:fix
-
-```
-
-in package.json
-
-eslint 使用 --cache 可能会让修改的配置不会立即生效
-
-如：`eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src`
-
-```js
-"scripts": {
-  "lint": "npm run lint:js && npm run lint:css",
-  "lint:js": "cross-env TIMING=1 eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
-  "lint:css": "stylelint 'src/**/*.less' --syntax less",
-  "lint:prettier": "prettier --check 'src/**/*' --end-of-line auto",
-  "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:prettier:fix",
-  "lint:js:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
-  "lint:css:fix": "stylelint --fix 'src/**/*.less' --syntax less",
-  "lint:prettier:fix": "prettier -c --write 'src/**/*.{js,jsx,ts,tsx,less,md,json}' && git diff && prettier --version",
-}
-```
-
-in `.eslintrc.js`
-
-```js
-module.exports = {
-  extends: [require.resolve('@deepjs/lint/dist/eslint')],
-
-  // in antd-design-pro
-  globals: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
-    page: true,
-  },
-
-  rules: {
-    // your rules
-  },
-};
-```
-
-in `.stylelintrc.js`
-
-```js
-module.exports = {
-  extends: [require.resolve('@deepjs/lint/dist/stylelint')],
-  rules: {
-    // your rules
-  },
-};
-```
-
-in `.prettierrc.js`
-
-```js
-const lint = require('@deepjs/lint');
-
-module.exports = {
-  ...lint.prettier,
-};
-```
-
-in `.editorconfig`
-
-```yaml
-# https://editorconfig.org/
-root = true
-
-[*] # 匹配所有的文件
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-[*.js] # 对所有的 js 文件生效
-# 字符串使用单引号
-quote_type = single
-
-[*.md]
-trim_trailing_whitespace = false
-
-[Makefile]
-indent_style = tab
-```
