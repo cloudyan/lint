@@ -93,3 +93,4 @@ yarn.lock
 /vue/
 scripts
 temp
+.DS_Store
