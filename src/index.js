@@ -1,8 +1,9 @@
-const eslint = require('../config/eslint')
-const prettier = require('../config/prettier')
-const stylelint = require('../config/stylelint')
-const commitlint = require('../config/commitlint')
-const browserslist = require('../config/browserslist')
+const eslint = require('./eslint')
+const prettier = require('./prettier')
+const stylelint = require('./stylelint')
+const commitlint = require('./commitlint')
+const browserslist = require('./browserslist')
+const lintstaged = require('./lint-staged')
 
 module.exports = {
   eslint,
@@ -10,5 +11,6 @@ module.exports = {
   stylelint,
   commitlint,
   browserslist,
+  lintstaged,
   default: browserslist,
 }

@@ -5,12 +5,8 @@ node_modules
 package.json
 
 # 其他类型文件
-**/*.js
 **/*.jpg
-**/*.md
 **/*.svg
-**/*.ejs
-**/*.html
 **/*.png
 **/*.toml
 *.lock
@@ -40,3 +36,6 @@ yarn-error.log
 .umi-production
 .umi-test
 **/locales/**
+
+# lint custom
+template/*.js

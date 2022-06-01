@@ -8,6 +8,14 @@
 
 将 lint 配置及依赖提取，通过一个 npm 包统一管理。
 
+### 一键生成
+
+```bash
+npx lint --init
+```
+
+### 手动操作
+
 ```bash
 npm i --save-dev @deepjs/lint eslint stylelint prettier @commitlint/cli husky lint-staged cross-env
 
