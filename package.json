@@ -1,6 +1,6 @@
 {
   "name": "@deepjs/lint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "lint",
@@ -42,9 +42,17 @@
     "testTS": "cd tsExample && npm run lint"
   },
   "lint-staged": {
-    "*.{json,md,yml,yaml}": ["npm run prettier:fix"],
-    "src/**/*.{js,jsx,ts,tsx}": ["npm run prettier:fix", "npm run eslint:fix"],
-    "*.{css,less,scss}": ["npm run prettier:fix", "npm run stylelint:fix"]
+    "*.{json,md,yml,yaml}": [
+      "npm run prettier:fix"
+    ],
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run prettier:fix",
+      "npm run eslint:fix"
+    ],
+    "*.{css,less,scss}": [
+      "npm run prettier:fix",
+      "npm run stylelint:fix"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
