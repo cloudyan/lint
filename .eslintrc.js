@@ -1,3 +1,3 @@
-const { eslint } = require('./dist')
+const { getEslintConfig } = require('./dist')
 
-module.exports = eslint
+module.exports = getEslintConfig()

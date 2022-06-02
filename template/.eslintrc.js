@@ -1,3 +1,3 @@
-const { eslint } = require('@deepjs/lint')
+const { getEslintConfig } = require('@deepjs/lint')
 
-module.exports = eslint
+module.exports = getEslintConfig()
