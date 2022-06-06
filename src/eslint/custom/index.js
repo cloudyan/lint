@@ -1,3 +1,5 @@
+// 我们的自定义规则
+
 module.exports = {
   rules: {
     'comma-dangle': [

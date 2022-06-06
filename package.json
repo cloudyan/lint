@@ -17,9 +17,10 @@
     "lint": "./cli.js"
   },
   "files": [
-    "config",
+    "index.d.ts",
+    "mobile",
     "dist",
-    "cli.js"
+    "bin"
   ],
   "scripts": {
     "build": "rm -rf dist && cp -r src dist",
@@ -33,9 +34,8 @@
     "prepare": "husky install",
     "prepublishOnly": "np --no-cleanup --no-yarn --yolo --no-publish --any-branch --no-verify",
     "prettier": "prettier . --check",
-    "prettier:diff": "npm run prettier:fix && git --no-pager diff && git checkout -- .",
     "prettier:fix": "npm run prettier -- --write",
-    "stylelint": "stylelint --allow-empty-input 'src/**/*.{css,less,scss,sass}'",
+    "stylelint": "stylelint --allow-empty-input 'src/**/*.{css,less,scss}'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "test": "npm run lint-staged",
     "testJS": "cd jsExample && npm run lint",
@@ -66,11 +66,13 @@
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "chalk": "^4.1.2",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-formatter-pretty": "^4.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jest": "^26.4.6",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",

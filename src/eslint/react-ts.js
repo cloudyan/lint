@@ -1,12 +1,11 @@
 module.exports = {
   extends: [
-    require.resolve('./rules/ts-base'),
-    // require.resolve('./rules/react'),
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
+    require.resolve('./typescript'),
+    require.resolve('./rules/react'),
+    // 'airbnb',
+    // 'airbnb-typescript',
+    // 'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
-    // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'prettier',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
 }

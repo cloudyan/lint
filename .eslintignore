@@ -43,3 +43,4 @@ template/
 jsExample
 tsExample
 .eslintrc.js
+index.d.ts

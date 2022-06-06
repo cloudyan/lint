@@ -1,6 +1,9 @@
+
 // npm i -D @babel/eslint-parser eslint-config-airbnb-base
 
+// base config
 module.exports = {
+  root: true,
   env: {
     // https://eslint.org/docs/user-guide/configuring/language-options
     browser: true,
@@ -22,5 +25,5 @@ module.exports = {
       jsx: true,
     },
   },
-  // plugins: ['promise', 'eslint-comments'],
+  // plugins: ['promise', 'eslint-comments', 'jest'],
 }

@@ -2,9 +2,14 @@
 
 module.exports = {
   extends: [
-    require.resolve('./rules/base'),
-    // require.resolve('./rules/react'),
-    'airbnb',
-    'prettier', // 需要放在 extends 最后，且去除所有后续的 rules
+    require.resolve('./index'),
+    require.resolve('./rules/react'),
+    // 'airbnb',
+    // 'prettier', // 需要放在 extends 最后，且去除所有后续的 rules
   ],
+  parserOptions: {
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
+  },
 }
