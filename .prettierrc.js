@@ -1,3 +1,3 @@
-const { prettier } = require('./dist')
+const { getPrettierConfig } = require('./dist')
 
-module.exports = prettier
+module.exports = getPrettierConfig()
