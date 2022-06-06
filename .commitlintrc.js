@@ -1,3 +1,3 @@
-const { getCommitlintConfig } = require('./dist')
+const { getCommitlintConfig } = require('./src')
 
 module.exports = getCommitlintConfig()

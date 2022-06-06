@@ -1,3 +1,3 @@
-const { getStylelintConfig } = require('./dist')
+const { getStylelintConfig } = require('./src')
 
 module.exports = getStylelintConfig()

@@ -18,8 +18,8 @@
   },
   "files": [
     "index.d.ts",
-    "mobile",
-    "dist",
+    "mobile.js",
+    "src",
     "bin"
   ],
   "scripts": {
