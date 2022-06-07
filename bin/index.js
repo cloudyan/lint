@@ -3,11 +3,11 @@
 const { Command } = require('commander')
 const pkg = require('../package.json')
 const updateCheck = require('../lib/update')
-const initLintConfig = require('../lib/init-lint-config')
+const init = require('../lib/init')
 
 // https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md
 const program = new Command()
-program.version(pkg.version, '-v, --version', 'output the current version')
+program.version(pkg.version, '-v, --version', 'output the current version').description('数禾前端 lint 工具')
 
 program
   .command('update')
@@ -19,15 +19,17 @@ program
 program
   .command('init')
   .description('Initial lint configuration.')
-  .option('-t, --type', 'Project type')
+  // .option('-f, --force', 'Force override')
   .action((options) => {
-    initLintConfig()
+    // 默认强制模式
+    Object.assign(options, { force: true })
+    init(options)
   })
 
 program
   .command('commitlint')
   .description('commit message lint')
-  .action((options) => {
+  .action(() => {
     console.log('cooklint commitlint')
   })
 

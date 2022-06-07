@@ -21,6 +21,7 @@ npm i --save-dev @deepjs/lint eslint stylelint prettier @commitlint/cli husky li
 ```js
 // .prettierrc.js
 const { getPrettierConfig } = require('@deepjs/lint')
+
 module.exports = getPrettierConfig()
 
 
@@ -33,11 +34,13 @@ module.exports = getEslintConfig()
 
 // .stylelint.js
 const { getStylelintConfig } = require('@deepjs/lint')
+
 module.exports = getStylelintConfig()
 
 
 // .commitlintrc.js
 const { getCommitlintConfig } = require('@deepjs/lint')
+
 module.exports = getCommitlintConfig()
 
 

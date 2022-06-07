@@ -14,7 +14,7 @@ const eslintConfig = {
 }
 
 function getEslintConfig(type, userConfig) {
-  const config = eslintConfig[type || 'default'] || eslintConfig.default;
+  const config = eslintConfig[type || 'default'] || eslintConfig.default
 
   // prettier 需要放在 extends 最后，且去除所有后续的 rules
   config.extends = [].concat(config.extends || [], 'prettier')
@@ -24,7 +24,7 @@ function getEslintConfig(type, userConfig) {
 }
 
 function getStylelintConfig(type, userConfig) {
-  const config = stylelint;
+  const config = stylelint
 
   config.extends = [].concat(config.extends || [], 'stylelint-config-prettier')
   config.rules = Object.assign({}, config.rules, userConfig)
@@ -33,13 +33,13 @@ function getStylelintConfig(type, userConfig) {
 }
 
 function getPrettierConfig(type, userConfig) {
-  const config = prettier;
+  const config = prettier
 
   return Object.assign({}, config, userConfig)
 }
 
 function getCommitlintConfig(type, userConfig) {
-  const config = commitlint;
+  const config = commitlint
 
   return Object.assign({}, config, userConfig)
 }

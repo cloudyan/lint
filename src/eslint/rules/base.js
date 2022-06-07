@@ -1,4 +1,3 @@
-
 // npm i -D @babel/eslint-parser eslint-config-airbnb-base
 
 // base config
